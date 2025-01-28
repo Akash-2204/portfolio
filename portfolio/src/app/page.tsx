@@ -1,7 +1,9 @@
+import AvatarModel from "@/components/avatarModel/avatarModel";
+import HomePage from "@/pages/homePage/homePage";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Welcome to My Application</h1>
-    </main>
+    <HomePage />
+    // <AvatarModel/>
   );
 }
