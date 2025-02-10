@@ -1,0 +1,121 @@
+:root {
+  --color-text: #ffffff;
+  --color-bg: #060606;
+  --color-bg-accent: #111111;
+  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --gap: calc(var(--size) / 14);
+  --duration: 60s;
+}
+
+.logoWallWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 20px 10px;
+
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.wrapperVertical {
+  flex-direction: row;
+  justify-content: center;
+  height: 100%;
+}
+
+.marquee {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
+  justify-content: flex-start;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-size: cover;
+  mask-repeat: no-repeat;
+}
+
+.marqueeVertical {
+  flex-direction: column;
+  height: 100%;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-size: cover;
+  mask-repeat: no-repeat;
+}
+
+.marqueeGroup {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  animation: scrollX var(--duration) linear infinite;
+}
+
+.marqueeReverse .marqueeGroup {
+  animation-direction: reverse;
+  animation-delay: -3s;
+}
+
+.marqueeGroup {
+  min-width: 100%;
+}
+
+.marqueeVertical .marqueeGroup {
+  min-width: auto;
+  min-height: 100%;
+  flex-direction: column;
+  animation-name: scrollY;
+}
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.paused .marqueeGroup {
+  animation-play-state: paused !important;
+}
+
+.marqueeGroup img {
+  width: var(--size);
+  background: var(--color-bg-accent);
+  aspect-ratio: 16/9;
+  padding: calc(var(--size) / 10);
+  border-radius: 0.5rem;
+  object-fit: contain;
+}
+
+.marqueeVertical .marqueeGroup img {
+  aspect-ratio: 1;
+  width: calc(var(--size) / 1.5);
+  padding: calc(var(--size) / 6);
+}
