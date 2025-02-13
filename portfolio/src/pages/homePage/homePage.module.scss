@@ -1,27 +1,112 @@
 .container {
-    display: flex;
-    height: 100vh;
-    width: 100vh;
-    justify-content: space-between;
-  }
-  
-  .leftSection {
-    flex: 1;
-    display: flex;
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  justify-content: space-between;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack sections on smaller screens */
     align-items: center;
-    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+.leftSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex: none;
     width: 100%;
   }
-  
-  .rightSection {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+}
+
+.rightSection {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Align text vertically */
+  text-align: center;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    flex: none;
+    height: auto;
+    padding: 1rem;
   }
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
   
-  .contentWrapper {
-    text-align: center;
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family:fantasy;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
   }
-  
+}
+
+.highlighted {
+  color: #b784f4; /* Purple highlight */
+}
+
+.jobTitleSection{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.jobTitle1 {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ddd5e8;
+  position: relative;
+  font-family:fantasy ;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.jobTitle {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #b784f4;
+  position: relative;
+  font-family:cursive ;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+// /* Typing effect cursor */
+// @keyframes blinkCursor {
+//   50% { opacity: 0; }
+// }
+
+// .jobTitle::after {
+//   content: "|";
+//   font-size: 1.8rem;
+//   color: #b784f4;
+//   animation: blinkCursor 1s step-end infinite;
+// }

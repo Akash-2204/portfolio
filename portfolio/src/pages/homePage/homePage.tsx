@@ -1,7 +1,15 @@
 "use client";
+import dynamic from "next/dynamic";
 import AvatarModel from "@/components/avatarModel/avatarModel";
 import styles from "./homePage.module.scss";
-import {about} from '../../utils/userData'
+import { about } from "../../utils/userData";
+import GradientText from "@/components/Texts/gradientText/gradiantText";
+
+const RotatingText = dynamic(
+  () => import("@/components/Texts/rotateTexts/rotateTexts"),
+  { ssr: false }
+);
+
 
 export default function HomePage() {
   return (
@@ -11,8 +19,34 @@ export default function HomePage() {
       </div>
       <div className={styles.rightSection}>
         <div className={styles.contentWrapper}>
-          <h1>Hi! I&apos;m {about.name}</h1>
-          <p>Full-stack Developer | Frontend Developer </p>
+          <GradientText
+            className={styles.name}
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+          >
+            {about.name}
+          </GradientText>
+          <div className={styles.jobTitleSection}>
+            <div className={styles.jobTitle1}> I&apos;m a </div>
+            <RotatingText
+            className={styles.jobTitle}
+            texts={[
+              "Full-stack Developer",
+              "Frontend Developer",
+              "Web Developer",
+            ]}
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom="last"
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-120%", opacity: 0 }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
+          </div>
         </div>
       </div>
     </div>

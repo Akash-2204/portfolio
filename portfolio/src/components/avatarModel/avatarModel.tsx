@@ -14,7 +14,6 @@ const AvatarModel: React.FC = () => {
 
     // Scene setup
     const scene = new THREE.Scene();
-
     const camera = new THREE.PerspectiveCamera(75, mount.clientWidth / mount.clientHeight, 0.1, 1000);
     camera.position.set(0, 1, 3);
 
@@ -36,13 +35,19 @@ const AvatarModel: React.FC = () => {
     // Load 3D Avatar Model
     const loader = new GLTFLoader();
     let avatar: THREE.Object3D | null = null;
-    loader.load('/models/avatar.glb', (gltf) => {
-      avatar = gltf.scene;
-      avatar.position.set(0, -1, 0);
-      scene.add(avatar);
-    }, undefined, (error) => {
-      console.error('Error loading model:', error);
-    });
+
+    loader.load(
+      '/models/avatar.glb',
+      (gltf) => {
+        avatar = gltf.scene;
+        avatar.position.set(0, -2.2, 0);
+        avatar.scale.set(2.2, 2.2, 2.2);
+        avatar.rotation.y = THREE.MathUtils.degToRad(0);
+        scene.add(avatar);
+      },
+      undefined,
+      (error) => console.error('Error loading model:', error)
+    );
 
     // Mouse movement interaction within container
     const onMouseMove = (event: MouseEvent) => {
@@ -53,16 +58,11 @@ const AvatarModel: React.FC = () => {
       avatar.rotation.y = x * Math.PI; // Horizontal rotation
       avatar.rotation.x = y * Math.PI * 0.1; // Vertical rotation
     };
-    
-    const onMouseEnter = () => {
-      mount.addEventListener('mousemove', onMouseMove);
-    };
 
+    const onMouseEnter = () => mount.addEventListener('mousemove', onMouseMove);
     const onMouseLeave = () => {
       mount.removeEventListener('mousemove', onMouseMove);
-      if (avatar) {
-        avatar.rotation.set(0, 0, 0); // Reset to default position
-      }
+      if (avatar) avatar.rotation.set(0, THREE.MathUtils.degToRad(20), 0); // Reset rotation
     };
 
     mount.addEventListener('mouseenter', onMouseEnter);
@@ -77,19 +77,39 @@ const AvatarModel: React.FC = () => {
     };
     animate();
 
-    // Handle resizing
-    const resize = () => {
+    // Handle resizing efficiently
+    const resizeObserver = new ResizeObserver(() => {
       camera.aspect = mount.clientWidth / mount.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(mount.clientWidth, mount.clientHeight);
-    };
-    window.addEventListener('resize', resize);
+    });
 
+    resizeObserver.observe(mount);
+
+    // Cleanup function
     return () => {
       cancelAnimationFrame(frameId);
-      window.removeEventListener('resize', resize);
+      controls.dispose(); // Dispose controls properly
+      resizeObserver.disconnect();
       mount.removeEventListener('mouseenter', onMouseEnter);
       mount.removeEventListener('mouseleave', onMouseLeave);
+
+      if (avatar) {
+        scene.remove(avatar);
+        avatar.traverse((child) => {
+          if ((child as THREE.Mesh).geometry) (child as THREE.Mesh).geometry.dispose();
+          if ((child as THREE.Mesh).material) {
+            const material = (child as THREE.Mesh).material;
+            if (Array.isArray(material)) {
+              material.forEach((mat) => mat.dispose());
+            } else {
+              material.dispose();
+            }
+          }
+        });
+      }
+
+      renderer.dispose();
       mount.removeChild(renderer.domElement);
     };
   }, []);
