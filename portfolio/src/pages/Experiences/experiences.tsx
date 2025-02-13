@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import styles from "./expirence.module.scss"; // Import the SCSS module
+import styles from "./experiences.module.scss"; 
 
 interface Experience {
   id: number;

@@ -1,6 +1,7 @@
 "use client";
 import AvatarModel from "@/components/avatarModel/avatarModel";
 import styles from "./homePage.module.scss";
+import {about} from '../../utils/userData'
 
 export default function HomePage() {
   return (
@@ -10,8 +11,8 @@ export default function HomePage() {
       </div>
       <div className={styles.rightSection}>
         <div className={styles.contentWrapper}>
-          <h1>Welcome to My Portfolio</h1>
-          <p>Frontend Developer | Creative Technologist</p>
+          <h1>Hi! I&apos;m {about.name}</h1>
+          <p>Full-stack Developer | Frontend Developer </p>
         </div>
       </div>
     </div>
