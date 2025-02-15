@@ -1,0 +1,24 @@
+// Container for circular text animation
+.circularText {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+// Letters inside circular text
+.letter {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 24px;
+  transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+}

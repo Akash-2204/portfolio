@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
         hostname: "assets.aceternity.com",
       },
     ],
+    domains: ["images.unsplash.com"],
+
   },
 };
 
