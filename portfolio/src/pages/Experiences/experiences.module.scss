@@ -1,83 +1,56 @@
-.experienceTree {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 0 1.25rem; // Equivalent to px-5
-  
-    .treeLine {
-      position: absolute;
-      width: 4px;
-      height: 100%;
-      background-color: #d1d5db; // Equivalent to bg-gray-300
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .experienceItem {
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin: 2rem 0;
-      width: 100%;
-      max-width: 40rem; // Equivalent to max-w-4xl
-  
-      .branchLine {
-        position: absolute;
-        width: 40px;
-        height: 4px;
-        background-color: #d1d5db;
-      }
-  
-      .experienceCard {
-        position: relative;
-        width: 250px;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        background-color: white;
-        transition: transform 0.2s ease-in-out;
-  
-        &.expanded {
-          background-color: #2563eb; // Equivalent to bg-blue-600
-          color: white;
-          transform: scale(1.1);
-        }
-  
-        h3 {
-          font-size: 1.125rem; // Equivalent to text-lg
-          font-weight: 600;
-        }
-  
-        p {
-          font-size: 0.875rem; // Equivalent to text-sm
-        }
-  
-        .expandText {
-          position: absolute;
-          bottom: 0.5rem;
-          right: 0.5rem;
-          font-size: 0.75rem; // Equivalent to text-xs
-        }
-      }
-    }
-  
-    // Alternating positions for left and right cards
-    .left {
-      margin-left: auto;
-      .branchLine {
-        right: 50%;
-      }
-    }
-  
-    .right {
-      margin-right: auto;
-      .branchLine {
-        left: 50%;
-      }
-    }
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+// Timeline Item
+.timelineItem {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+
+// Line & Number Container
+.lineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 50px;
+  justify-content: center; // Ensures the index stays centered
+}
+
+// Vertical Line
+// .line {
+//   width: 2px;
+//   height: 100%;
+//   background: linear-gradient(to bottom, #6a11cb, #2575fc);
+//   position: absolute;
+// }
+
+// Number in the Middle of the Line
+.index {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+  background: #000; // Makes sure the number is visible against the line
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+// Content Box
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

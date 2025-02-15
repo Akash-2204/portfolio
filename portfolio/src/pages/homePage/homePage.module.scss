@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  height: 100vh; /* Full viewport height */
+  height: 100%; /* Full viewport height */
   width: 100%;
   justify-content: space-between;
   padding: 2rem;
@@ -33,6 +33,8 @@
   flex-direction: column; /* Align text vertically */
   text-align: center;
   padding: 2rem;
+  z-index: 1;
+
 
   @media (max-width: 768px) {
     flex: none;

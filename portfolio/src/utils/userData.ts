@@ -64,11 +64,11 @@ const projects = [
 
 const experiences = [
     {
-      title: "Fullstack Developer",
-      company: "Vitasoft Technologies (Client: Vibrant Wellness - Santa Clara, California)",
+      role: "Fullstack Developer",
+      company: "Vitasoft Technologies",
       duration: "Jun 2021 - Jul 2023",
       location: "Chennai, India",
-      responsibilities: [
+      description: [
         "Led a team of 6 in the design and development of a scalable SaaS-based patient navigation portal using React (Next.js), React Native, GraphQL, TypeScript, and Python, achieving a 60% increase in user satisfaction and 40% faster load times.",
         "Developed reusable, responsive UI components using React (Next.js), Storybook, and Figma, while collaborating with cross-functional teams to implement interactive and responsive designs, enhancing user experience across diverse devices.",
         "Designed and deployed scalable solutions using AWS services (Lambda, S3, CloudFront, Route 53), implementing secure API integrations and data encryption to ensure performance, availability, and regulatory compliance across distributed systems.",
@@ -79,11 +79,11 @@ const experiences = [
       stack: ["React (Next.js)", "React Native", "Node.js", "GraphQL", "TypeScript", "gRPC", "Python", "AWS", "MongoDB", "Redis", "Jest", "Cypress", "Docker", "GitHub Actions"]
     },
     {
-      title: "Software Engineer",
+      role: "Software Engineer",
       company: "Mitsogo Inc (Hexnode)",
       duration: "Sep 2020 - May 2021",
       location: "Kochi, India",
-      responsibilities: [
+      description: [
         "Redesigned Hexnode’s backend architecture using Python and Django, developing RESTful APIs and improving database queries, which resulted in a 40% improvement in performance and response times.",
         "Developed scalable frontend applications using React integrated with Django APIs, improving UI responsiveness by 35%.",
         "Enhanced data retrieval and processing efficiency by leveraging data structures and algorithms, reducing query times by 25%."
@@ -91,11 +91,11 @@ const experiences = [
       stack: ["Python", "Django", "React", "REST APIs", "SQL", "MongoDB"]
     },
     {
-      title: "Software Engineer Intern",
+      role: "Software Engineer Intern",
       company: "LTIMindtree",
       duration: "Apr 2019 - May 2019",
       location: "Chennai, India",
-      responsibilities: [
+      description: [
         "Developed a Logistics Employee Tracking System using Python and Google Maps API, enhancing real-time tracking accuracy by 30% to improve operational efficiency and resource allocation.",
         "Optimized backend data processing pipelines using OOP principles and efficient algorithms, reducing response times by 20%."
       ],

@@ -12,7 +12,9 @@ interface ExperienceProps {
   company: string;
   role: string;
   duration: string;
-  description: string;
+  description: string[];
+  stack: string[];
+  key?: number;
   modalSize?: "sm" | "lg";
 }
 
@@ -45,6 +47,7 @@ export default function ExperienceModal({
   role,
   duration,
   description,
+  stack,
   modalSize = "lg",
 }: ExperienceProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -133,7 +136,11 @@ export default function ExperienceModal({
                 >
                   {company} - {role}
                 </h3>
-                <p className={styles.description}>{description}</p>
+                {description.map((exp, index)=>(
+                  <div className={styles.description} key={index}> &rarr {exp}</div>
+                ))}
+                
+                {/* <div className={styles.description}>{stack}</div> */}
                 <div className={styles.buttonContainer}>
                   <button
                     onClick={() => setIsOpen(false)}

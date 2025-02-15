@@ -1,17 +1,29 @@
-import Modal from "@/components/modal/modal";
-import Experience from "@/components/modal/modal";
-
-const experienceData = {
-  company: "Google",
-  role: "Senior Frontend Engineer",
-  duration: "2023 - Present",
-  description: "Creating More Complex Animations for Modals Framer Motion allows you to create more complex animations by combining multiple animation props and using variants. Variants are a way to predefine animation states and transitions, which can then be reused across multiple components or animations.  For instance, you can create a modal that slides in from the right and then slides out to the left when closed..",
-};
+"use client";
+import ExperienceModal from "@/components/modal/modal";
+import { experiences } from "@/utils/userData";
+import styles from "./experiences.module.scss";
+import { motion } from "framer-motion";
 
 export default function Experiences() {
   return (
-    <main>
-      <Modal {...experienceData} />
-    </main>
+    <div className={styles.container}>
+      {experiences.map((exp, index) => (
+        <motion.div
+          key={index}
+          className={styles.timelineItem}
+          initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/* <div className={styles.lineContainer}>
+            <div className={styles.line} />
+            <div className={styles.index}>{`0${index + 1}`}</div>
+          </div> */}
+          <div className={styles.content}>
+            <ExperienceModal {...exp} />
+          </div>
+        </motion.div>
+      ))}
+    </div>
   );
 }
