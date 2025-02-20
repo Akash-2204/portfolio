@@ -74,10 +74,7 @@ export default function ExperienceModal({
   };
 
   return (
-    <SpotlightCard
-      className="custom-spotlight-card"
-      spotlightColor="rgba(0, 229, 255, 0.2)"
-    >
+    <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
       <div
         ref={divRef}
         className={styles.header}
@@ -87,7 +84,6 @@ export default function ExperienceModal({
         onMouseMove={handleMouseMove}
         aria-expanded={isOpen}
       >
-        {/* <Briefcase className={styles.icon} size={20} /> */}
         <div className={styles.details}>
           <h3 className={styles.company}>{company}</h3>
           <p className={styles.role}>{role}</p>
@@ -95,13 +91,7 @@ export default function ExperienceModal({
         </div>
         <AnimatePresence>
           {isHovered && (
-            <div
-              ref={infoRef}
-              style={{
-                transform: "translate(var(--x), var(--y))",
-              }}
-              className={styles.tooltip}
-            >
+            <div ref={infoRef} style={{ transform: "translate(var(--x), var(--y))" }} className={styles.tooltip}>
               Read more &rarr;
             </div>
           )}
@@ -123,29 +113,25 @@ export default function ExperienceModal({
               }}
               exit={{ scale: 0, rotate: "180deg" }}
               onClick={(e) => e.stopPropagation()}
-              className={cn(styles.modal, {
-                [styles.smallModal]: modalSize === "sm",
-              })}
+              className={cn(styles.modal, { [styles.smallModal]: modalSize === "sm" })}
             >
               <div className={styles.modalContent}>
                 <Briefcase className={styles.icon} size={40} />
-                <h3
-                  className={cn(styles.title, {
-                    [styles.smallTitle]: modalSize === "sm",
-                  })}
-                >
+                <h3 className={cn(styles.title, { [styles.smallTitle]: modalSize === "sm" })}>
                   {company} - {role}
                 </h3>
-                {description.map((exp, index)=>(
-                  <div className={styles.description} key={index}> &rarr {exp}</div>
-                ))}
-                
-                {/* <div className={styles.description}>{stack}</div> */}
+
+                {/* Description as an Unordered List with Arrow Icons */}
+                <ul className={styles.descriptionList}>
+                  {description.map((exp, index) => (
+                    <li key={index} className={styles.descriptionItem}>
+                      {exp}
+                    </li>
+                  ))}
+                </ul>
+
                 <div className={styles.buttonContainer}>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className={styles.closeButton}
-                  >
+                  <button onClick={() => setIsOpen(false)} className={styles.closeButton}>
                     Close
                   </button>
                 </div>
