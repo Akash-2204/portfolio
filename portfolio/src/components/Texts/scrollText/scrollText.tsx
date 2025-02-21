@@ -23,8 +23,8 @@ const ScrollText: React.FC<ScrollTextProps> = ({
   scrollContainerRef,
   containerClassName = "",
   textClassName = "",
-  animationDuration = 1,
-  ease = "back.inOut(2)",
+  animationDuration = 3,
+  ease = "back.inOut(3)",
   scrollStart = "center bottom+=50%",
   scrollEnd = "bottom bottom-=40%",
   stagger = 0.03

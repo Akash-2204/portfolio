@@ -29,7 +29,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  perspective: 1000px;
+  perspective: 1200px;
   transform-style: preserve-3d;
 }
 
@@ -52,17 +52,19 @@
   justify-content: center;
   padding: 8%;
   backface-visibility: hidden;
+  margin: 50px;
 }
 
 .projectCard {
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to right, rgba(97, 38, 38, 0.848) 0%, #060606 100%);
   backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px rgba(82, 60, 60, 0.697);
   text-align: center;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   width: 600px;
+  max-height: 350px;
 }
 
 .projectCard:hover {
@@ -70,15 +72,21 @@
 }
 
 .projectTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif; // Use Poppins for sleek titles
+  color: #e65b5bda;
+  text-transform: capitalize;
+  letter-spacing: 1px;
 }
 
 .projectDescription {
   font-size: 1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif; // Inter is great for readability
   color: #cccccc;
   text-align: justify;
+  line-height: 1.6;
 }
 
 .stack {
@@ -90,13 +98,16 @@
 }
 
 .techBadge {
-  background: #ffcc00;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  color: #000;
-  font-weight: bold;
-}
+    background: rgba(106, 45, 218, 0.573);
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif; // Montserrat for badges
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+  }
 
 @media (max-width: 768px) {
   .galleryItem {

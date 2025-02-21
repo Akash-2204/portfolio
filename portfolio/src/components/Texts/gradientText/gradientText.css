@@ -9,10 +9,12 @@
     border-radius: 1.25rem;
     /* 20px */
     font-weight: 500;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     transition: box-shadow 0.5s ease-out;
     overflow: hidden;
     cursor: pointer;
+    color: transparent;
+    background: transparent;
   }
   
   .gradient-overlay {
@@ -26,6 +28,7 @@
     border-radius: inherit;
     z-index: 0;
     pointer-events: none;
+    opacity: 0.5;
   }
   
   .gradient-overlay::before {
@@ -40,6 +43,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     /* background-color: #060606; */
+    background: transparent;
     z-index: -1;
   }
   

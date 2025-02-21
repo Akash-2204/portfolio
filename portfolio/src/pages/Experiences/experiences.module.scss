@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 40px;
   padding: 40px 20px;
-  max-width: 900px;
+  // max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
@@ -28,13 +28,6 @@
   justify-content: center; // Ensures the index stays centered
 }
 
-// Vertical Line
-// .line {
-//   width: 2px;
-//   height: 100%;
-//   background: linear-gradient(to bottom, #6a11cb, #2575fc);
-//   position: absolute;
-// }
 
 // Number in the Middle of the Line
 .index {

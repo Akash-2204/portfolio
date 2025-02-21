@@ -47,6 +47,9 @@ export default function HomePage() {
             rotationInterval={2000}
           />
           </div>
+          <div>
+            
+          </div>
         </div>
       </div>
     </div>

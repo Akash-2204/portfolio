@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
 .scrollText {
   overflow: hidden;
 }
@@ -8,7 +9,9 @@
   font-weight: 900;
   text-align: center;
   line-height: 1.5;
-  color: rgb(57, 45, 78);
+  color: rgb(44, 20, 92);
+  font-family: "Orbitron", sans-serif;
+  text-transform:uppercase;
 }
 
 .char {

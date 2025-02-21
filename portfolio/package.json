@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.1.1",
+    "@fontsource/montserrat": "^5.1.1",
+    "@fontsource/poppins": "^5.1.1",
     "@react-spring/web": "^9.7.5",
     "@tabler/icons-react": "^3.30.0",
     "clsx": "^2.1.1",

@@ -11,7 +11,6 @@ import {
 import styles from "./rollingCards.module.scss";
 import { projects } from "@/utils/userData";
 
-
 interface RollingGalleryProps {
   autoplay?: boolean;
   pauseOnHover?: boolean;
@@ -19,17 +18,18 @@ interface RollingGalleryProps {
 
 const RollingGallery: React.FC<RollingGalleryProps> = ({
   autoplay = false,
-  pauseOnHover = false,
+  pauseOnHover = true,
 }) => {
   const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(
     window.innerWidth <= 640
   );
 
+  const [isDragging, setIsDragging] = useState(false);
   // 3D geometry calculations
   const cylinderWidth: number = isScreenSizeSm ? 1100 : 1800;
   const faceCount: number = projects.length;
   const faceWidth: number = (cylinderWidth / faceCount) * 1.5;
-  const dragFactor: number = 0.05;
+  const dragFactor: number = 0.03;
   const radius: number = cylinderWidth / (2 * Math.PI);
 
   // Framer Motion values and controls
@@ -37,23 +37,36 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   const controls = useAnimation();
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const handleDrag = (_: any, info: PanInfo): void => {
+  const handleDragStart = () => {
+    setIsDragging(true);
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
+  };
+
+  const handleDrag = (_: any, info: PanInfo) => {
+    handleDragStart();
     controls.stop();
     rotation.set(rotation.get() + info.offset.x * dragFactor);
   };
 
-  const handleDragEnd = (_: any, info: PanInfo): void => {
+  const handleDragEnd = (_: any, info: PanInfo) => {
+    setIsDragging(false);
     controls.start({
       rotateY: rotation.get() + info.velocity.x * dragFactor,
-      transition: {
-        type: "spring",
-        stiffness: 60,
-        damping: 20,
-        mass: 0.1,
-        ease: "easeOut",
-      },
+      transition: { type: "spring", stiffness: 80, damping: 20, ease: "easeOut" },
     });
-  };
+    // Restart autoplay after a delay (to prevent jumpy movement)
+    setTimeout(() => {
+        if (autoplay) {
+          autoplayRef.current = setInterval(() => {
+            controls.start({
+              rotateY: rotation.get() - 0.3,
+              transition: { duration: 0.2, ease: "linear" },
+            });
+            rotation.set(rotation.get() - 0.3);
+          }, 50);
+        }
+      }, 2000);
+    };
 
   // Create a 3D transform based on the rotation motion value
   const transform = useTransform(rotation, (value: number) => {
@@ -63,11 +76,11 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
     if (autoplay) {
       autoplayRef.current = setInterval(() => {
         controls.start({
-          rotateY: rotation.get() - 360 / faceCount,
-          transition: { duration: 2, ease: "linear" },
+          rotateY: rotation.get() - 0.3,
+          transition: { duration: 0.2, ease: "linear" },
         });
-        rotation.set(rotation.get() - 360 / faceCount);
-      }, 2000);
+        rotation.set(rotation.get() - 0.3);
+      }, 50);
 
       return () => {
         if (autoplayRef.current) clearInterval(autoplayRef.current);
@@ -94,18 +107,18 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   const handleMouseLeave = (): void => {
     if (autoplay && pauseOnHover) {
       controls.start({
-        rotateY: rotation.get() - 360 / faceCount,
-        transition: { duration: 2, ease: "linear" },
+        rotateY: rotation.get() - 0.3,
+        transition: { duration: 0.2, ease: "linear" },
       });
-      rotation.set(rotation.get() - 360 / faceCount);
+      rotation.set(rotation.get() - 0.3);
 
       autoplayRef.current = setInterval(() => {
         controls.start({
-          rotateY: rotation.get() - 360 / faceCount,
-          transition: { duration: 2, ease: "linear" },
+          rotateY: rotation.get() - 0.3,
+          transition: { duration: 0.2, ease: "linear" },
         });
-        rotation.set(rotation.get() - 360 / faceCount);
-      }, 2000);
+        rotation.set(rotation.get() - 0.3);
+      }, 50);
     }
   };
 
@@ -137,7 +150,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
                 width: `${faceWidth}px`,
                 transform: `rotateY(${
                   (360 / faceCount) * i
-                }deg) translateZ(${radius}px)`,
+                }deg) translateZ(${radius + 150}px)`,
               }}
             >
               <div className={styles.projectCard}>
