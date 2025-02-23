@@ -69,10 +69,12 @@
   color: #b784f4; /* Purple highlight */
 }
 
-.jobTitleSection{
+.jobTitleSection {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* Prevents breaking into new lines */
+  gap: 1rem; /* Adjusts spacing between elements */
+  white-space: nowrap; /* Prevents text wrapping */
 }
 .jobTitle1 {
   margin-top: 1.5rem;
@@ -87,9 +89,37 @@
     font-size: 1.5rem;
   }
 }
+.jobTitle2 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7f45cf;
+  position: relative;
+  font-family:fantasy ;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+.jobTitle3 {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ddd5e8;
+  position: relative;
+  font-family:fantasy ;
+  margin-right: 10px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
 
 .jobTitle {
   margin-top: 1rem;
+  margin-right: 10px;
   font-size: 2rem;
   font-weight: bold;
   color: #b784f4;
@@ -98,6 +128,44 @@
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
+  }
+}
+
+.socialContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+    width: 100%;
+  }
+}
+
+.socialButton {
+  background: transparent;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
   }
 }
 

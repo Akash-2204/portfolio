@@ -15,8 +15,10 @@
   gap: 40px;
   position: relative;
   margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
 
 // Line & Number Container
 .lineContainer {
@@ -27,7 +29,6 @@
   width: 50px;
   justify-content: center; // Ensures the index stays centered
 }
-
 
 // Number in the Middle of the Line
 .index {

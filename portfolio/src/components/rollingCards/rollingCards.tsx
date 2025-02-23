@@ -17,7 +17,7 @@ interface RollingGalleryProps {
 }
 
 const RollingGallery: React.FC<RollingGalleryProps> = ({
-  autoplay = false,
+  autoplay = true,
   pauseOnHover = true,
 }) => {
   const [isScreenSizeSm, setIsScreenSizeSm] = useState<boolean>(
@@ -25,6 +25,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   );
 
   const [isDragging, setIsDragging] = useState(false);
+
   // 3D geometry calculations
   const cylinderWidth: number = isScreenSizeSm ? 1100 : 1800;
   const faceCount: number = projects.length;
@@ -37,55 +38,26 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
   const controls = useAnimation();
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const handleDragStart = () => {
-    setIsDragging(true);
+  const startAutoRotate = () => {
     if (autoplayRef.current) clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      controls.start({
+        rotateY: rotation.get() - 0.3,
+        transition: { duration: 0.3, ease: "linear" },
+      });
+      rotation.set(rotation.get() - 0.3);
+    }, 30); // Adjust for a smoother constant speed
   };
 
-  const handleDrag = (_: any, info: PanInfo) => {
-    handleDragStart();
+  const stopAutoRotate = () => {
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
     controls.stop();
-    rotation.set(rotation.get() + info.offset.x * dragFactor);
   };
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
-    setIsDragging(false);
-    controls.start({
-      rotateY: rotation.get() + info.velocity.x * dragFactor,
-      transition: { type: "spring", stiffness: 80, damping: 20, ease: "easeOut" },
-    });
-    // Restart autoplay after a delay (to prevent jumpy movement)
-    setTimeout(() => {
-        if (autoplay) {
-          autoplayRef.current = setInterval(() => {
-            controls.start({
-              rotateY: rotation.get() - 0.3,
-              transition: { duration: 0.2, ease: "linear" },
-            });
-            rotation.set(rotation.get() - 0.3);
-          }, 50);
-        }
-      }, 2000);
-    };
-
-  // Create a 3D transform based on the rotation motion value
-  const transform = useTransform(rotation, (value: number) => {
-    return `rotate3d(0, 1, 0, ${value}deg)`;
-  });
+  // Start autoplay when component mounts
   useEffect(() => {
-    if (autoplay) {
-      autoplayRef.current = setInterval(() => {
-        controls.start({
-          rotateY: rotation.get() - 0.3,
-          transition: { duration: 0.2, ease: "linear" },
-        });
-        rotation.set(rotation.get() - 0.3);
-      }, 50);
-
-      return () => {
-        if (autoplayRef.current) clearInterval(autoplayRef.current);
-      };
-    }
+    if (autoplay) startAutoRotate();
+    return () => stopAutoRotate();
   }, [autoplay, rotation, controls, faceCount]);
 
   useEffect(() => {
@@ -96,31 +68,40 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  // Pause on hover with smooth transition
+
+  // Handle Drag
+  const handleDragStart = () => {
+    setIsDragging(true);
+    stopAutoRotate();
+  };
+
+  const handleDrag = (_: any, info: PanInfo) => {
+    handleDragStart();
+    rotation.set(rotation.get() + info.offset.x * dragFactor * 0.2);
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleDragEnd = (_: any) => {
+    setIsDragging(false);
+    setTimeout(() => {
+      if (!isDragging) startAutoRotate();
+    }, 1500); // Delay before resuming rotation
+  };
+
+  // Pause rotation on hover
   const handleMouseEnter = (): void => {
-    if (autoplay && pauseOnHover) {
-      if (autoplayRef.current) clearInterval(autoplayRef.current);
-      controls.stop();
-    }
+    if (pauseOnHover) stopAutoRotate();
   };
 
+  // Resume rotation when mouse leaves
   const handleMouseLeave = (): void => {
-    if (autoplay && pauseOnHover) {
-      controls.start({
-        rotateY: rotation.get() - 0.3,
-        transition: { duration: 0.2, ease: "linear" },
-      });
-      rotation.set(rotation.get() - 0.3);
-
-      autoplayRef.current = setInterval(() => {
-        controls.start({
-          rotateY: rotation.get() - 0.3,
-          transition: { duration: 0.2, ease: "linear" },
-        });
-        rotation.set(rotation.get() - 0.3);
-      }, 50);
-    }
+    if (!isDragging) startAutoRotate();
   };
+
+  // Create a 3D transform based on the rotation motion value
+  const transform = useTransform(rotation, (value: number) => {
+    return `rotate3d(0, 1, 0, ${value}deg)`;
+  });
 
   return (
     <div className={styles.galleryContainer}>
@@ -129,8 +110,6 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
       <div className={styles.galleryContent}>
         <motion.div
           drag="x"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           className={styles.galleryTrack}
           style={{
             transform: transform,
@@ -139,18 +118,21 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
             transformStyle: "preserve-3d",
           }}
           onDrag={handleDrag}
+          onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           animate={controls}
         >
           {projects.map((project, i) => (
             <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               key={i}
               className={styles.galleryItem}
               style={{
                 width: `${faceWidth}px`,
-                transform: `rotateY(${
-                  (360 / faceCount) * i
-                }deg) translateZ(${radius + 150}px)`,
+                transform: `rotateY(${(360 / faceCount) * i}deg) translateZ(${
+                  radius + 150
+                }px)`,
               }}
             >
               <div className={styles.projectCard}>

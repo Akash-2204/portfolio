@@ -4,14 +4,20 @@ import AvatarModel from "@/components/avatarModel/avatarModel";
 import styles from "./homePage.module.scss";
 import { about } from "../../utils/userData";
 import GradientText from "@/components/Texts/gradientText/gradiantText";
+import Image from "next/image";
 
 const RotatingText = dynamic(
   () => import("@/components/Texts/rotateTexts/rotateTexts"),
   { ssr: false }
 );
 
-
 export default function HomePage() {
+  const socialLinks = [
+    { src: "https://img.icons8.com/nolan/64/resume.png", alt: "Resume", url: "https://drive.google.com/file/d/1bEAMBdyNC9bHsHmrPqjsO60vzi23Qdhv/view?usp=sharing" },
+    { src: "https://img.icons8.com/nolan/64/linkedin.png", alt: "LinkedIn", url: "https://www.linkedin.com/in/akash-thirumuruganantham/" },
+    { src: "https://img.icons8.com/nolan/64/github.png", alt: "GitHub", url: "https://github.com/Akash-2204" },
+    { src: "https://img.icons8.com/nolan/48/instagram-new--v1.png", alt: "Instagram", url: "https://www.instagram.com/akash_thirumuruganantham/" },
+  ];
   return (
     <div className={styles.container}>
       <div className={styles.leftSection}>
@@ -19,36 +25,53 @@ export default function HomePage() {
       </div>
       <div className={styles.rightSection}>
         <div className={styles.contentWrapper}>
+          <div className={styles.jobTitle3}>
+            Hi there! I am
+          </div>
           <GradientText
             className={styles.name}
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            colors={["#ff007f", "#a200ff", "#007fff"]}
             animationSpeed={3}
             showBorder={false}
           >
             {about.name}
           </GradientText>
           <div className={styles.jobTitleSection}>
-            <div className={styles.jobTitle1}> I&apos;m a </div>
+            <div className={styles.jobTitle1}>a</div>
             <RotatingText
-            className={styles.jobTitle}
-            texts={[
-              "Full-stack Developer",
-              "Frontend Developer",
-              "Web Developer",
-            ]}
-            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-            staggerFrom="last"
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-120%", opacity: 0 }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2000}
-          />
+              className={styles.jobTitle}
+              texts={[
+                "Full-stack Developer",
+                "Frontend Developer",
+                "Web Developer",
+              ]}
+              mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom="last"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+            {/* <div className={styles.jobTitle1}>with 3+ years of Experience</div> */}
           </div>
-          <div>
-            
+          <div className={styles.jobTitle2}>
+            Let’s connect and build something amazing together!
+          </div>
+          <div className={styles.socialContainer}>
+            {socialLinks.map(({ src, alt, url }, index) => (
+              <button
+                key={index}
+                onClick={() =>
+                  window.open(url, "_blank", "noopener,noreferrer")
+                }
+                className={styles.socialButton}
+              >
+                <Image src={src} alt={alt} width={64} height={64} priority />
+              </button>
+            ))}
           </div>
         </div>
       </div>
