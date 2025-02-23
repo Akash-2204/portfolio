@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide:wght@400;600&display=swap");
+
+// Root container
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 40px;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+// Section Header
+.sectionHeader {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+// Category Container
+.category {
+  //   width: 90%; // Almost full width
+  max-width: 1400px;
+  margin-bottom: 30px;
+  padding: 20px;
+  //   background: linear-gradient(135deg, #2a2a72, #009ffd);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  flex &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// Category Title
+.categoryTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #9f93dc;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: "Audiowide", sans-serif;
+}
+
+// Skills List (Marquee effect container)
+.skillsList {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 15px;
+  padding: 10px;
+  min-height: 90px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+}
+
+// Skill Item (each skill block)
+.skillsItem {
+  background: rgba(5, 5, 5, 0.2);
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 190px;
+  background: linear-gradient(135deg, #13134f, #0270b0);
+
+  &:hover {
+    background: linear-gradient(135deg, #13134f, #1590d8);
+    transform: scale(1.1);
+    border-radius: 5px; // Smooth rounded edges on hover
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); // Subtle glow effect
+  }
+}
+.skillIcon {
+  margin: 5px;
+}
+.skillsText {
+  margin: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #010101;
+  text-align: center;
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .category {
+    max-width: 90%;
+  }
+
+  .skillsItem {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skillsContainer {
+    padding: 20px;
+  }
+
+  .category {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .skillsItem {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionHeader {
+    font-size: 1.5rem;
+  }
+
+  .categoryTitle {
+    font-size: 1.3rem;
+  }
+
+  .skillsItem {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+}

@@ -1,0 +1,94 @@
+// marquee.module.scss
+
+$duration: 15s; // Speed of the scrolling
+$gap: 15px; // Space between elements
+
+.marqueeContainer {
+  position: relative;
+  display: flex;
+  // width: 100%;
+  height: 100%;
+  // padding: 8px;
+  // margin: 0 10;
+  gap: $gap;
+  overflow: hidden;
+  border-radius: 25px;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+  }
+}
+
+.marqueeTrack {
+  display: flex;
+  flex-shrink: 0;
+  gap: $gap;
+  animation: marquee-x $duration linear infinite;
+  white-space: nowrap;
+
+  &.paused {
+    animation-play-state: paused;
+  }
+
+  &.reverse {
+    animation-direction: reverse;
+  }
+
+  &.horizontal {
+    animation-name: marquee-x;
+    flex-direction: row;
+  }
+
+  &.vertical {
+    animation-name: marquee-y;
+    flex-direction: column;
+  }
+}
+
+// Gradient Mask
+.marqueeMask {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  // background: linear-gradient(
+  //   to right,
+  //   rgba(255, 255, 255, 0.5) 5%,
+  //   transparent 50%,
+  //   rgba(255, 255, 255, 0.5) 95%
+  // );
+
+  &.vertical {
+    // background: linear-gradient(
+    //   to bottom,
+    //   rgba(255, 255, 255, 0.5) 5%,
+    //   transparent 50%,
+    //   rgba(255, 255, 255, 0.5) 95%
+    // );
+  }
+}
+
+// Keyframes for animations
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - #{$gap}));
+  }
+}
+
+@keyframes marquee-y {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - #{$gap}));
+  }
+}

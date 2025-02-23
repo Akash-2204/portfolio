@@ -83,7 +83,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     {
       icon: <VscTools size={18} />,
       label: "Skills",
-      onClick: () => alert("Skills!"),
+      onClick: () => handleNavigation("skills"),
     },
     {
       icon: <VscMail size={18} />,

@@ -105,7 +105,18 @@ const experiences = [
   
 
 const skills = {
-  "Front-End": [
+  "Programming Languages": [
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Dart",
+    "C C++",
+    "Java",
+    "SQL",
+    "JSON",
+    "YAML",
+  ],
+  Frontend: [
     "React.js",
     "Next.js",
     "Redux",
@@ -114,9 +125,8 @@ const skills = {
     "CSS",
     "SCSS",
     "Flutter",
-    "Axios/Fetch",
   ],
-  "Back-End": [
+  Backend: [
     "Node.js",
     "NestJS",
     "ExpressJS",
@@ -151,7 +161,7 @@ const skills = {
   "DevOps and Testing": [
     "Jenkins",
     "Docker",
-    "CI/CD",
+    "CI CD",
     "Microservice Architecture",
     "Jest",
     "Cypress",
@@ -160,21 +170,10 @@ const skills = {
     "Shell scripting",
     "Git",
   ],
-  "Programming Languages": [
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "Dart",
-    "C/C++",
-    "Java",
-    "SQL",
-    "JSON",
-    "YAML",
-  ],
 };
 
 const contact = {
-  email: "athirumuruganantham@hawk.iit.edu",
+  email: "athiru0499@gmail.com",
 };
 
 export { header, about, experiences, projects, skills, contact };
