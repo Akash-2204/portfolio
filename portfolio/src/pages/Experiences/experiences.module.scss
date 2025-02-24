@@ -1,51 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide:wght@400;600&display=swap");
+
 .container {
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 40px 20px;
-  // max-width: 1000px;
   margin: 0 auto;
   position: relative;
 }
 
-// Timeline Item
-.timelineItem {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  position: relative;
-  margin-bottom: 15px;
-  opacity: 0;
-  transform: translateX(-200px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+// Timeline Connector - starts black and grows with color change
+.timelineConnector {
+  width: 4px;
+  height: 0%;
+  background: black; // Initial state - black
+  transition: height 1.2s ease-in-out, background 1s ease-in-out;
+
+  &.active {
+    height: 100%;
+    background: linear-gradient(to bottom, #a60707, #210808);
+    box-shadow: 0px 0px 12px #ba0101, 0px 0px 25px #ff00ff;
+  }
 }
 
-// Line & Number Container
-.lineContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// **🔥 Glowing Timeline Dot**
+.timelineDot {
   position: relative;
-  width: 50px;
-  justify-content: center; // Ensures the index stays centered
+  background: transparent !important;
+  border: 2px solid black !important;
+  transition: box-shadow 0.8s ease-in-out, border-color 0.8s ease-in-out;
+
+  &.active {
+    border-color: #390b0b !important;
+    box-shadow: 0px 0px 15px #670367, 0px 0px 30px #3b023b;
+  }
 }
 
-// Number in the Middle of the Line
-.index {
-  position: relative;
-  font-size: 2.5rem;
+// **💡 Glow Animation**
+@keyframes glowEffect {
+  0% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+// Opposite Content Styling
+.oppContent {
+  display: flex;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: white;
-  z-index: 10;
-  background: #000; // Makes sure the number is visible against the line
-  padding: 5px 10px;
-  border-radius: 6px;
+  font-family: "Audiowide", sans-serif;
+  transition: color 0.8s ease-in-out;
 }
 
-// Content Box
-.content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// Alternate Alignment
+.alignRight {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+// **🔥 Responsive Design**
+@media (max-width: 768px) {
+  .oppContent {
+    font-size: 1.1rem;
+  }
 }

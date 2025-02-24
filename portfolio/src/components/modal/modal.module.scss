@@ -143,16 +143,16 @@
 // Experience Container
 .header {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   flex-direction: column;
-    padding: 30px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   min-width: 500px;
@@ -241,23 +241,22 @@
 }
 
 .tooltip {
-    pointer-events: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 50;
-    border-radius: 9999px; // Equivalent to rounded-full
-    background: rgba(72, 78, 184, 0.8); // Equivalent to bg-blue-800/80
-    padding: 8px 16px; // Equivalent to px-4 py-2
-    font-size: 0.875rem; // Equivalent to text-sm
-    font-weight: bold; // Equivalent to font-bold
-    color: white; // Equivalent to text-white
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  border-radius: 9999px; // Equivalent to rounded-full
+  background: rgba(72, 78, 184, 0.8); // Equivalent to bg-blue-800/80
+  padding: 8px 16px; // Equivalent to px-4 py-2
+  font-size: 0.875rem; // Equivalent to text-sm
+  font-weight: bold; // Equivalent to font-bold
+  color: white; // Equivalent to text-white
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out; // Equivalent to duration-0
+
+  // When hovering over the parent (group-hover effect)
+  .header:hover & {
     opacity: 1;
-    transition: opacity 0.2s ease-in-out; // Equivalent to duration-0
-    
-    // When hovering over the parent (group-hover effect)
-    .header:hover & {
-      opacity: 1;
-    }
   }
-  
+}

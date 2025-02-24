@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen Dots:wght@400;600&display=swap');
 .scrollText {
   overflow: hidden;
 }
 
 .scrollTextText {
   display: inline-block;
-  font-size: clamp(1.6rem, 8vw, 10rem);
+  font-size: clamp(1.5rem, 8vw, 10rem);
   font-weight: 900;
   text-align: center;
   line-height: 1.5;
-  color: rgb(44, 20, 92);
-  font-family: "Orbitron", sans-serif;
+  color: rgb(51, 23, 108);
+  font-family: "Zen Dots", sans-serif;
   text-transform:uppercase;
 }
 

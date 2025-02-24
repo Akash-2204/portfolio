@@ -87,7 +87,7 @@ export default function ExperienceModal({
         <div className={styles.details}>
           <h3 className={styles.company}>{company}</h3>
           <p className={styles.role}>{role}</p>
-          <span className={styles.duration}>{duration}</span>
+          {/* <span className={styles.duration}>{duration}</span> */}
         </div>
         <AnimatePresence>
           {isHovered && (

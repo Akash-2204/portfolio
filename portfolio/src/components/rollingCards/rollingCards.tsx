@@ -124,8 +124,6 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
         >
           {projects.map((project, i) => (
             <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
               key={i}
               className={styles.galleryItem}
               style={{
@@ -135,7 +133,11 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
                 }px)`,
               }}
             >
-              <div className={styles.projectCard}>
+              <div
+                className={styles.projectCard}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
                 <h3 className={styles.projectTitle}>{project.name}</h3>
                 <p className={styles.projectDescription}>
                   {project.description}
