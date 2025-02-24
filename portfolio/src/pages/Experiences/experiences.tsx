@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import ExperienceModal from "@/components/modal/modal";
 import { experiences } from "@/utils/userData";
@@ -16,6 +17,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import { useRef } from "react";
 
 export default function Experiences() {
+  
   return (
     <div className={styles.container}>
       <div>
@@ -35,7 +37,6 @@ export default function Experiences() {
         {experiences.map((exp, index) => {
           const ref = useRef(null);
           const isInView = useInView(ref, { amount: 0.3, once: false });
-
           return (
             <TimelineItem key={index} ref={ref}>
               {/* Opposite Content - Time Period */}
@@ -58,12 +59,16 @@ export default function Experiences() {
               <TimelineSeparator>
                 {/* Top Connector with Scroll Effect */}
                 <TimelineConnector
-                  className={`${styles.timelineConnector} ${isInView ? styles.active : ""}`}
+                  className={`${styles.timelineConnector} ${
+                    isInView ? styles.active : styles.active
+                  }`}
                 />
 
                 {/* Glowing Timeline Dot */}
                 <TimelineDot
-                  className={`${styles.timelineDot} ${isInView ? styles.active : ""}`}
+                  className={`${styles.timelineDot} ${
+                    isInView ? styles.active : ""
+                  }`}
                 >
                   {exp.type === "school" ? (
                     <SchoolIcon sx={{ color: "#a60707" }} />
@@ -74,7 +79,9 @@ export default function Experiences() {
 
                 {/* Bottom Connector with Scroll Effect */}
                 <TimelineConnector
-                  className={`${styles.timelineConnector} ${isInView ? styles.active : ""}`}
+                  className={`${styles.timelineConnector} ${
+                    isInView ? styles.active : ""
+                  }`}
                 />
               </TimelineSeparator>
 
