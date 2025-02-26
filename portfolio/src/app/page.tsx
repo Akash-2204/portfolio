@@ -7,6 +7,7 @@ import "@fontsource/inter"; // Inter
 import "@fontsource/montserrat"; // Montserrat
 import Projects from "@/pages/Projects/projects";
 import Skills from "@/pages/Skills/skills";
+import ContactInfo from "@/pages/contactInfo/contactInfo";
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
       </div>
       <div id="skills" className={styles.section}>
         <Skills />
+      </div>
+      <div id="contactMe" className={styles.section}>
+        <ContactInfo/>
       </div>
     </>
   );

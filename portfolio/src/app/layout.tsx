@@ -87,8 +87,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     },
     {
       icon: <VscMail size={18} />,
-      label: "Contact Me",
-      onClick: () => alert("Contact Me!"),
+      label: "ContactMe",
+      onClick: () => handleNavigation("contactMe"),
     },
   ];
 

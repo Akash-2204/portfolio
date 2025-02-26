@@ -1,106 +1,123 @@
-.emailContainer {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  padding: 16px;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease-in-out;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap");
 
-  &:hover {
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  }
-}
-
-/* Email Card Styling */
-.emailCard {
-  position: relative;
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
+.contactSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  border: 1px solid #ddd;
-  transition: transform 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+  margin: 10;
+}
 
-  &:hover {
-    transform: scale(0.98);
-  }
+.contactCard {
+  max-width: 900px;
+  width: 100%;
+  background: #2a1b5a;
+  padding: 32px;
+  padding-left: 10px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.subtitle {
+  flex: 1;
+  text-transform: uppercase;
+  color: #aba1a1;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .title {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #333;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left;
+  margin-left: 15px;
 }
 
-.description {
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: #666;
-}
-
-/* Form Fields */
-.field {
+/* Form Styling */
+.form {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .label {
+  font-size: 1rem;
   font-weight: 600;
-  color: #444;
-  font-size: 0.9rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 10px 15px;
 }
 
-.staticText {
-  margin-top: 4px;
-  padding: 8px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.9rem;
+.inputField {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1035;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+
+  &::placeholder {
+    color: #7e6a9e;
+  }
+
+  &:focus {
+    outline: 2px solid #6a0dad;
+    background: #22134a;
+  }
 }
 
-.bodyText {
-  height: 80px;
-  overflow-y: auto;
+/* Textarea */
+.textArea {
+  height: 100px;
+  resize: none;
+}
+
+/* Error Handling */
+.errorField {
+  outline: 2px solid red;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
 }
 
 /* Send Button */
 .sendButton {
-  align-self: flex-end;
-  background: #555;
-  padding: 10px 14px;
+  width: 100px;
+  padding: 10px;
+  margin-left: 15px;
+  border-radius: 8px;
+  background: #3e245f;
   color: white;
-  font-size: 1.2rem;
-  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 
   &:hover {
-    background: #27ae60;
+    background: #6a0dad;
   }
 }
 
-/* Hover Notification */
-.sentNotification {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(39, 174, 96, 0.8);
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-.emailContainer:hover .sentNotification {
-  opacity: 1;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
 }
