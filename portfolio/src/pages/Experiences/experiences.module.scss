@@ -5,8 +5,11 @@
   flex-direction: column;
   gap: 40px;
   padding: 40px 20px;
-  margin: 0 auto;
+  margin: 0 0px;
   position: relative;
+  @media (max-width: 880px) {
+    
+  }
 }
 
 // Timeline Connector - starts black and grows with color change

@@ -88,7 +88,8 @@ export default function Experiences() {
               {/* Motion Animated Experience Content */}
               <TimelineContent>
                 <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -200 : 200 }}
+                //to change based on screen size
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 200 : -200 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 1.2, ease: "easeOut" }}
                 >

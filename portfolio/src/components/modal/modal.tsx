@@ -2,7 +2,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, School } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./modal.module.scss";
 import SpotlightCard from "../card/card";
@@ -16,6 +16,7 @@ interface ExperienceProps {
   stack: string[];
   key?: number;
   modalSize?: "sm" | "lg";
+  type: string;
 }
 
 import { useEffect } from "react";
@@ -45,6 +46,7 @@ export function useMousePosition(
 export default function ExperienceModal({
   company,
   role,
+  type,
   duration,
   description,
   stack,
@@ -55,6 +57,7 @@ export default function ExperienceModal({
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const divRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1024); // Initial check
 
   const update = useCallback(({ x, y }: { x: number; y: number }) => {
     if (!infoRef.current) return;
@@ -72,9 +75,23 @@ export default function ExperienceModal({
   const handleMouseMove = (event: React.MouseEvent) => {
     setMousePos({ x: event.clientX, y: event.clientY });
   };
+  const updateScreenSize = () => {
+    setIsLargeScreen(window.innerWidth > 1024);
+  };
+
+  useEffect(() => {
+    // Listen for screen resize
+    window.addEventListener("resize", updateScreenSize);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
 
   return (
-    <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+    <SpotlightCard
+      className="custom-spotlight-card"
+      spotlightColor="rgba(0, 229, 255, 0.2)"
+    >
       <div
         ref={divRef}
         className={styles.header}
@@ -87,15 +104,20 @@ export default function ExperienceModal({
         <div className={styles.details}>
           <h3 className={styles.company}>{company}</h3>
           <p className={styles.role}>{role}</p>
+          {window.innerWidth < 680 ? (<span className={styles.duration}>{duration}</span>):""}
           {/* <span className={styles.duration}>{duration}</span> */}
         </div>
         <AnimatePresence>
-          {isHovered && (
-            <div ref={infoRef} style={{ transform: "translate(var(--x), var(--y))" }} className={styles.tooltip}>
-              Read more &rarr;
-            </div>
-          )}
-        </AnimatePresence>
+        {isHovered && isLargeScreen && (
+          <div
+            ref={infoRef}
+            style={{ transform: "translate(var(--x), var(--y))" }}
+            className={styles.tooltip}
+          >
+            Read more &rarr;
+          </div>
+        )}
+      </AnimatePresence>
       </div>
 
       <AnimatePresence>
@@ -113,11 +135,22 @@ export default function ExperienceModal({
               }}
               exit={{ scale: 0, rotate: "180deg" }}
               onClick={(e) => e.stopPropagation()}
-              className={cn(styles.modal, { [styles.smallModal]: modalSize === "sm" })}
+              className={cn(styles.modal, {
+                [styles.smallModal]: modalSize === "sm",
+              })}
             >
               <div className={styles.modalContent}>
-                <Briefcase className={styles.icon} size={40} />
-                <h3 className={cn(styles.title, { [styles.smallTitle]: modalSize === "sm" })}>
+                {type === "school" ? (
+                  <School className={styles.icon} size={40} />
+                ) : (
+                  <Briefcase className={styles.icon} size={40} />
+                )}
+
+                <h3
+                  className={cn(styles.title, {
+                    [styles.smallTitle]: modalSize === "sm",
+                  })}
+                >
                   {company} - {role}
                 </h3>
 
@@ -131,7 +164,10 @@ export default function ExperienceModal({
                 </ul>
 
                 <div className={styles.buttonContainer}>
-                  <button onClick={() => setIsOpen(false)} className={styles.closeButton}>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className={styles.closeButton}
+                  >
                     Close
                   </button>
                 </div>
