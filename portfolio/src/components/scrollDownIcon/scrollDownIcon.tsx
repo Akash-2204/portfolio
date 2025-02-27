@@ -43,9 +43,7 @@ const ScrollDownIcon = () => {
   return (
     <div className={styles.scrollContainer} onClick={() => window.scrollTo({ top: isBottom ? 0 : document.body.scrollHeight, behavior: "smooth" })}>
       {/* Changing Text */}
-      <motion.span className={styles.scrollText} variants={textVariants} animate="visible" initial="hidden">
-        {isBottom ? "Scroll Up" : "Scroll Down"}
-      </motion.span>
+      
 
       {/* Changing Icon */}
       <motion.div className={styles.scrollIcon} variants={iconVariants} animate="end" initial="start">
@@ -53,6 +51,9 @@ const ScrollDownIcon = () => {
           <path d={isBottom ? "M12 8l5 5H7l5-5z" : "M12 16l-5-5h10l-5 5z"} />
         </motion.svg>
       </motion.div>
+      <motion.span className={styles.scrollText} variants={textVariants} animate="visible" initial="hidden">
+        {isBottom ? "Scroll Up" : "Scroll Down"}
+      </motion.span>
     </div>
   );
 };

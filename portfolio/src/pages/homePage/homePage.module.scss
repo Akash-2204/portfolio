@@ -6,6 +6,10 @@
   padding: 2rem;
 
   @media (max-width: 768px) {
+    align-items: center;
+    padding: 1rem;
+  }
+  @media (max-width: 468px) {
     flex-direction: column; /* Stack sections on smaller screens */
     align-items: center;
     padding: 1rem;
@@ -20,8 +24,19 @@
   width: 100%;
 
   @media (max-width: 768px) {
-    flex: none;
-    width: 100%;
+    flex: 1;
+    z-index: -1;
+    // margin-top: 150px;
+  }
+  @media (max-width: 468px) {
+    flex: 1;
+    z-index: -1;
+    margin-top: 250px;
+  }
+  @media (max-width: 380px) {
+    flex: 1;
+    z-index: -1;
+    margin-top: 150px;
   }
 }
 
@@ -34,12 +49,23 @@
   text-align: center;
   padding: 2rem;
   z-index: 1;
-
-
-  @media (max-width: 768px) {
-    flex: none;
+  @media (max-width: 1030px) {
+    flex: 1;
     height: auto;
     padding: 1rem;
+  }
+
+  @media (max-width: 468px) {
+    flex: 1;
+    height: auto;
+    padding: 1rem;
+    margin-top: 210px;
+  }
+  @media (max-width: 378px) {
+    flex: 1;
+    height: auto;
+    padding: 1rem;
+    margin-top: 120px;
   }
 }
 
@@ -48,17 +74,20 @@
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
-  
 }
 
 .name {
   font-size: 3.5rem;
   font-weight: bold;
-  font-family:fantasy;
+  font-family: fantasy;
   color: white;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  @media (max-width: 1030px) {
+    font-size: 2.2rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -82,8 +111,12 @@
   font-weight: bold;
   color: #ddd5e8;
   position: relative;
-  font-family:fantasy ;
+  font-family: fantasy;
   margin-right: 10px;
+
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -95,7 +128,7 @@
   font-weight: bold;
   color: #7f45cf;
   position: relative;
-  font-family:fantasy ;
+  font-family: fantasy;
   margin-right: 10px;
 
   @media (max-width: 768px) {
@@ -108,7 +141,7 @@
   font-weight: bold;
   color: #ddd5e8;
   position: relative;
-  font-family:fantasy ;
+  font-family: fantasy;
   margin-right: 10px;
   text-align: left;
 
@@ -124,7 +157,7 @@
   font-weight: bold;
   color: #b784f4;
   position: relative;
-  font-family:cursive ;
+  font-family: cursive;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
@@ -137,7 +170,7 @@
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
-  
+
   @media (max-width: 768px) {
     flex-direction: row;
     justify-content: space-evenly;
@@ -154,7 +187,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  
+
   &:hover {
     transform: scale(1.1);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);

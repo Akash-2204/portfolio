@@ -37,16 +37,38 @@ const AvatarModel: React.FC = () => {
     let avatar: THREE.Object3D | null = null;
 
     loader.load(
-      '/models/avatar.glb',
+      "/models/avatar.glb",
       (gltf) => {
         avatar = gltf.scene;
         avatar.position.set(0, -2.2, 0);
         avatar.scale.set(2.2, 2.2, 2.2);
+    
+        // Function to dynamically update avatar scale based on screen width
+        const updateAvatarScale = () => {
+          const screenWidth = window.innerWidth;
+    
+          if (avatar && screenWidth < 768) {
+            // Mobile screens (smallest)
+            avatar.position.set(0, -1.2, 0);
+            avatar.scale.set(1.2, 1.2, 1.2);
+          } else if ( avatar && screenWidth < 1024) {
+            // Tablets
+            avatar.position.set(0, -1.8, 0);
+            avatar.scale.set(1.8, 1.8, 1.8);
+          }
+        };
+    
+        // Call function initially
+        updateAvatarScale();
+    
+        // Listen for window resize and adjust scale dynamically
+        window.addEventListener("resize", updateAvatarScale);
+    
         avatar.rotation.y = THREE.MathUtils.degToRad(0);
         scene.add(avatar);
       },
       undefined,
-      (error) => console.error('Error loading model:', error)
+      (error) => console.error("Error loading model:", error)
     );
 
     // Mouse movement interaction within container
