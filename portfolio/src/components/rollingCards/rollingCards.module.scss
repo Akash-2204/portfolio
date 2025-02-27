@@ -1,9 +1,21 @@
 .galleryContainer {
   position: relative;
-  height: 700px;
+  height: 900px;
   width: 1900px;
   min-width: 800px;
   overflow: hidden;
+  margin: 0 10px;
+  @media (max-width:1000px){
+    width: 1000px;
+    height: 600px;
+    min-width: 600px;
+  }
+  @media (max-width:600px){
+    width: 800px;
+    height: 600px;
+    min-width: 600px;
+    max-width: 600px;
+  }
 }
 
 .galleryGradient {
@@ -29,8 +41,14 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  perspective: 1200px;
+  perspective: 1300px;
   transform-style: preserve-3d;
+  @media (max-width:1000px){
+    perspective: 1400px;
+  }
+  @media (max-width:500px){
+    perspective: 1500px;
+  }
 }
 
 .galleryTrack {
@@ -52,7 +70,7 @@
   justify-content: center;
   padding: 8%;
   backface-visibility: hidden;
-  margin: 50px;
+  // margin: 20px;
 }
 
 .projectCard {
@@ -64,7 +82,7 @@
   text-align: center;
   transition: transform 0.4s ease-in-out;
   width: 600px;
-  max-height: 350px;
+  max-height: 500px;
 }
 
 .projectCard:hover {
@@ -72,21 +90,37 @@
 }
 
 .projectTitle {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif; // Use Poppins for sleek titles
   color: #e65b5bda;
   text-transform: capitalize;
   letter-spacing: 1px;
+  @media (max-width:1000px){
+    font-size: 1.2rem;
+    letter-spacing: 0px;
+  }
+  @media (max-width:768px){
+    font-size: 1rem;
+    letter-spacing: 0px;
+  }
 }
 
 .projectDescription {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   font-family: "Inter", sans-serif; // Inter is great for readability
   color: #cccccc;
   text-align: justify;
   line-height: 1.6;
+  @media (max-width:1000px){
+    font-size: 0.7rem;
+    letter-spacing: 0px;
+  }
+  @media (max-width:768px){
+    font-size: 0.6rem;
+    letter-spacing: 0px;
+  }
 }
 
 .stack {
@@ -99,7 +133,7 @@
 
 .techBadge {
     background: rgba(106, 45, 218, 0.573);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     font-family: "Montserrat", sans-serif; // Montserrat for badges
     padding: 6px 12px;
@@ -107,6 +141,16 @@
     text-transform: uppercase;
     letter-spacing: 0.8px;
     color: #fff;
+    @media (max-width:1000px){
+      font-size: 0.5rem;
+      letter-spacing: 0px;
+      padding: 6px 12px;
+    }
+    @media (max-width:768px){
+      font-size: 0.5rem;
+      letter-spacing: 0px;
+      padding: 3px 6px;
+    }
   }
 
 @media (max-width: 768px) {

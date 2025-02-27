@@ -19,6 +19,21 @@ const about = {
 
 const projects = [
   {
+    name: "Portfolio Website",
+    description:
+      "A futuristic, interactive portfolio showcasing skills, projects, and experience with smooth animations, 3D elements, and a responsive design. Features a dynamic timeline, scroll-based transitions, and a real-time email contact form integrated with EmailJS.",
+    stack: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Three.js",
+      "Framer Motion",
+      "SCSS",
+      "MUI",
+      "EmailJS",
+    ],
+  },
+  {
     name: "Health Metrics Dashboard",
     description:
       "Designed and developed a scalable health metrics dashboard using React, Node.js, and MongoDB, delivering real-time analytics for healthcare providers. Integrated MongoDB with WebSocket for real-time updates, reducing latency by 25% and improving decision-making with up-to-the-minute insights.",
@@ -28,7 +43,13 @@ const projects = [
     name: "GitHub Repository Analytics and Forecasting with LLMs",
     description:
       "Designed and implemented a system leveraging GitHub API, TensorFlow LSTM, and LangChain to enable semantic search, forecast repository metrics, and identify similar issues. Utilized vector embeddings in Elasticsearch for high-accuracy matching.",
-    stack: ["GitHub API", "TensorFlow", "LSTM", "LangChain", "Elasticsearch"],
+    stack: [
+      "OpenAPI",
+      "GitHub API",
+      "TensorFlow",
+      "LangChain",
+      "Elasticsearch",
+    ],
   },
   {
     name: "Queue Management System",
@@ -41,6 +62,12 @@ const projects = [
     description:
       "This project aims to develop a real-time chat application tailored for healthcare, utilizing React for the frontend, Node.js for the backend, and AWS services for deployment, scalability, and reliability. The application will enable patients and healthcare professionals to create accounts, join chat rooms, and exchange messages in real-time.",
     stack: ["TypeScript", "React", "Node.js", "AWS"],
+  },
+  {
+    name: "Anomaly-Driven-Video-Summarization",
+    description:
+      "A real-time surveillance system that enhances anomaly detection by analyzing video footage, identifying unusual activities, and summarizing critical events to improve security monitoring and data retrieval efficiency.",
+    stack: ["Python", "TensorFlow", "OpenCV", "NumPy", "3D ResNet"],
   },
   {
     name: "Sensor Data Collection using an Autonomous Drone",
@@ -64,7 +91,7 @@ const projects = [
 
 const experiences = [
   {
-    type:"school",
+    type: "school",
     role: "Master's in Computer Science",
     company: "Illinois Institute of Technology",
     duration: "Aug 2023 - May 2025",
@@ -74,7 +101,7 @@ const experiences = [
       "Developed a strong foundation in Machine Learning, working with supervised and unsupervised algorithms, deep learning models, and real-world datasets.",
       "Enhanced problem-solving skills through Data Structures and Algorithms, implementing optimized solutions for complex computational problems.",
       "Explored distributed computing and cloud technologies, leveraging AWS, GCP, and Azure for scalable application development.",
-      "Engaged in hands-on projects involving AI, full-stack development, and system design, applying knowledge to build real-world applications."
+      "Engaged in hands-on projects involving AI, full-stack development, and system design, applying knowledge to build real-world applications.",
     ],
     stack: [
       "Mobile Application Development",
@@ -83,7 +110,7 @@ const experiences = [
     ],
   },
   {
-    type:"work",
+    type: "work",
     role: "Fullstack Developer",
     company: "Vitasoft Technologies",
     duration: "Jun 2021 - Jul 2023",
@@ -114,7 +141,7 @@ const experiences = [
     ],
   },
   {
-    type:"work",
+    type: "work",
     role: "Software Engineer",
     company: "Mitsogo Inc (Hexnode)",
     duration: "Sep 2020 - May 2021",
@@ -127,7 +154,7 @@ const experiences = [
     stack: ["Python", "Django", "React", "REST APIs", "SQL", "MongoDB"],
   },
   {
-    type:"work",
+    type: "work",
     role: "Software Engineer Intern",
     company: "LTIMindtree",
     duration: "Apr 2019 - May 2019",
@@ -139,7 +166,7 @@ const experiences = [
     stack: ["Python", "Google Maps API", "OOPs"],
   },
   {
-    type:"school",
+    type: "school",
     role: "B.Tech in Electronics and Communication",
     company: "Amrita Vishwa Vidyapeetham",
     duration: "Jul 2016 - Aug 2020",
@@ -150,10 +177,10 @@ const experiences = [
       "Enhanced problem-solving abilities through Data Structures and Algorithms, implementing optimized solutions for computational problems.",
       "Gained expertise in Object-Oriented Programming (OOPs), focusing on software design principles and modular development.",
       "Worked on hands-on projects integrating IoT, microcontrollers, and AI-driven applications, bridging hardware and software capabilities.",
-      "Explored networking concepts, wireless communication, and digital signal processing, applying them in real-world scenarios."
+      "Explored networking concepts, wireless communication, and digital signal processing, applying them in real-world scenarios.",
     ],
     stack: ["Python", "Data Structures and Algorithm", "OOPs"],
-  }
+  },
 ];
 
 const skills = {
