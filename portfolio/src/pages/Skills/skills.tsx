@@ -5,20 +5,28 @@ import { skills } from "@/utils/userData";
 import styles from "./skills.module.scss";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 
 const Skills = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2 }); // Track view continuously
   const controls = useAnimation();
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 30 }); // Fade out when out of view
-    }
-  }, [isInView, controls]);
+    const handleScroll = () => {
+      if (ref.current) {
+        const top = ref.current.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          controls.start({ opacity: 1, y: 0 });
+          ref.current.classList.add(styles.visible);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Run on mount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
+
   return (
     <div className={styles.skillsContainer}>
       <div className={styles.sectionHeader}>

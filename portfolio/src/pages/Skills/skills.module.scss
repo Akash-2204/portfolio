@@ -8,6 +8,7 @@
   padding: 40px 40px;
   width: 100vw;
   overflow-x: hidden;
+  min-height: 100vh; // Ensure visibility on smaller screens
 }
 
 // Section Header
@@ -21,17 +22,24 @@
 
 // Category Container
 .category {
-  //   width: 90%; // Almost full width
   max-width: 1400px;
   margin-bottom: 30px;
   padding: 20px;
-  //   background: linear-gradient(135deg, #2a2a72, #009ffd);
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
-  flex &:hover {
+  opacity: 0;
+  transform: translateY(40px);
+  
+  &:hover {
     transform: scale(1.02);
   }
+}
+
+// Ensure categories become visible when scrolled into view
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 // Category Title
@@ -44,7 +52,7 @@
   font-family: "Audiowide", sans-serif;
 }
 
-// Skills List (Marquee effect container)
+// Skills List
 .skillsList {
   display: flex;
   overflow: hidden;
@@ -55,10 +63,9 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-
 }
 
-// Skill Item (each skill block)
+// Skill Item
 .skillsItem {
   background: rgba(5, 5, 5, 0.2);
   padding: 10px 15px;
@@ -74,30 +81,39 @@
   &:hover {
     background: linear-gradient(135deg, #13134f, #1590d8);
     transform: scale(1.1);
-    border-radius: 5px; // Smooth rounded edges on hover
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); // Subtle glow effect
+    border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 480px) {
+    min-width: 100px;
+    padding: 5px 10px;
   }
 }
+
 .skillIcon {
   margin: 5px;
+  @media (max-width: 480px) {
+    margin: 2px;
+  }
 }
+
 .skillsText {
   margin: 5px;
   font-size: 18px;
   font-weight: 600;
   color: #010101;
   text-align: center;
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
 }
 
-// Responsive Design
+// 📱 RESPONSIVE FIXES
 @media (max-width: 1024px) {
   .category {
-    max-width: 90%;
-  }
-
-  .skillsItem {
-    font-size: 0.9rem;
-    padding: 8px 12px;
+    max-width: 100%;
+    opacity: 1;
+    transform: translateY(0); // Prevents hiding on smaller screens
   }
 }
 
@@ -108,7 +124,7 @@
 
   .category {
     padding: 15px;
-    max-width: 95%;
+    max-width: 100%;
   }
 
   .skillsItem {
