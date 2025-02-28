@@ -1,13 +1,13 @@
 .galleryContainer {
   position: relative;
   height: 900px;
-  width: 1900px;
+  width: 100vw;
   min-width: 800px;
   overflow: hidden;
-  margin: 0 10px;
+  // margin: 0 10px;
   @media (max-width:1000px){
     width: 1000px;
-    height: 600px;
+    height: 800px;
     min-width: 600px;
   }
   @media (max-width:600px){
@@ -41,7 +41,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  perspective: 1300px;
+  perspective: 1200px;
   transform-style: preserve-3d;
   @media (max-width:1000px){
     perspective: 1400px;
@@ -81,8 +81,15 @@
   box-shadow: 0px 10px 20px rgba(82, 60, 60, 0.697);
   text-align: center;
   transition: transform 0.4s ease-in-out;
-  width: 600px;
-  max-height: 500px;
+  min-width: 200px;
+  min-height: 400px;
+  @media (max-width:1000px){
+    min-height: 300px;
+  }
+  @media (max-width:768px){
+    min-height: 200px;
+    padding: 20px;
+  }
 }
 
 .projectCard:hover {
@@ -90,7 +97,7 @@
 }
 
 .projectTitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   font-family: "Poppins", sans-serif; // Use Poppins for sleek titles
   color: #e65b5bda;
@@ -152,7 +159,51 @@
       padding: 3px 6px;
     }
   }
+  .stack1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+    justify-content: center;
+  }
 
+  .techBadge1 {
+    text-decoration: none;
+    background: rgba(100, 21, 21, 0.573);
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif; // Montserrat for badges
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #fff;
+    @media (max-width:1000px){
+      font-size: 0.5rem;
+      letter-spacing: 0px;
+      padding: 6px 12px;
+    }
+    @media (max-width:768px){
+      font-size: 0.5rem;
+      letter-spacing: 0px;
+      padding: 3px 6px;
+    }
+  }
+  .linkArrow {
+    margin-left: 5px;
+    font-size: 12px;
+    transition: transform 0.2s ease-in-out;
+    
+    .techBadge:hover & {
+      transform: translateY(-2px);
+    }
+    @media (max-width:1000px){
+      font-size: 10px;
+    }
+    @media (max-width:768px){
+      font-size: 8px;
+    }
+  }
 @media (max-width: 768px) {
   .galleryItem {
     padding: 6%;

@@ -32,12 +32,36 @@ const projects = [
       "MUI",
       "EmailJS",
     ],
+    link: ["","https://github.com/Akash-2204/portfolio"],
+  },
+  {
+    name: "Patient Navigation System (PNSS)",
+    description:
+      "A Healthcare platform optimizing test ordering, tracking, and patient-phlebotomist coordination. Built a responsive UI with React (Next.js) and Storybook, leveraging AWS for scalable infrastructure.",
+    stack: ["Next.js", "React.js", "Node.js", "AWS", "RestAPI"],
+    link: ["https://www.vibrant-wellness.com/ForPatient",""],
+  },
+  {
+    name: "Blood Draw Maps",
+    description:
+      "A geospatial search tool that enables patients to find the nearest phlebotomists or blood draw locations within a defined radius. Integrated Google Maps API and AWS Lambda to optimize service availability calculations, reducing patient wait times and improving coordination efficiency.",
+    stack: [
+      "Google Maps API",
+      "React",
+      "AWS Lambda",
+      "Node.js",
+      "DynamoDB",
+      "Geospatial Search",
+      "Redux",
+    ],
+    link: ["https://www.vibrant-america.com/blood-draw-maps/v2",""],
   },
   {
     name: "Health Metrics Dashboard",
     description:
       "Designed and developed a scalable health metrics dashboard using React, Node.js, and MongoDB, delivering real-time analytics for healthcare providers. Integrated MongoDB with WebSocket for real-time updates, reducing latency by 25% and improving decision-making with up-to-the-minute insights.",
     stack: ["React", "Node.js", "MongoDB", "WebSocket"],
+    link: ["",""],
   },
   {
     name: "GitHub Repository Analytics and Forecasting with LLMs",
@@ -50,43 +74,50 @@ const projects = [
       "LangChain",
       "Elasticsearch",
     ],
+    link: ["","https://github.com/Akash-2204/SCM587FA24"],
   },
   {
     name: "Queue Management System",
     description:
       "Crafted to enhance patient waiting experiences in healthcare environments, including clinics, hospitals, and medical centers, this solution reduces wait times, boosts patient satisfaction, and optimizes operational efficiency by leveraging React, Node.js, and AWS services to manage patient queues seamlessly and efficiently.",
     stack: ["TypeScript", "React", "Node.js", "AWS"],
+    link: ["",""],
   },
   {
     name: "Patient Connect Chat",
     description:
       "This project aims to develop a real-time chat application tailored for healthcare, utilizing React for the frontend, Node.js for the backend, and AWS services for deployment, scalability, and reliability. The application will enable patients and healthcare professionals to create accounts, join chat rooms, and exchange messages in real-time.",
     stack: ["TypeScript", "React", "Node.js", "AWS"],
+    link: ["",""],
   },
   {
     name: "Anomaly-Driven-Video-Summarization",
     description:
       "A real-time surveillance system that enhances anomaly detection by analyzing video footage, identifying unusual activities, and summarizing critical events to improve security monitoring and data retrieval efficiency.",
     stack: ["Python", "TensorFlow", "OpenCV", "NumPy", "3D ResNet"],
+    link: ["","https://github.com/Akash-2204/Anomaly-Driven-Video-Summarization"],
   },
-  {
-    name: "Sensor Data Collection using an Autonomous Drone",
-    description:
-      "Designed an autonomous UAV with a 1.5km range and 4-hour flight time. Executed data collection missions gathering temperature and pressure data at diverse locations using preloaded GPS coordinates.",
-    stack: ["Arduino", "Python"],
-  },
-  {
-    name: "UHF RFID Laundry Tracking System",
-    description:
-      "Developed a resilient solution for tracking diverse garments within the pharmaceutical industry. Designed a custom RFID transmitter/receiver system affixed to garments, enabling efficient bulk scanning and streamlined data storage. Winners of Smart India Hackathon 2019 Hardware Edition.",
-    stack: ["Arduino", "Python", "RFID", "C++"],
-  },
-  {
-    name: "Resource Allocation using Power Domain Non-Orthogonal Multiple Access",
-    description:
-      "Implemented strategies to enhance the efficiency of Non-Orthogonal Multiple Access (NOMA), thereby establishing a more stable communication framework.",
-    stack: ["Matlab"],
-  },
+  // {
+  //   name: "Sensor Data Collection using an Autonomous Drone",
+  //   description:
+  //     "Designed an autonomous UAV with a 1.5km range and 4-hour flight time. Executed data collection missions gathering temperature and pressure data at diverse locations using preloaded GPS coordinates.",
+  //   stack: ["Arduino", "Python"],
+  //   link: ["",""],
+  // },
+  // {
+  //   name: "UHF RFID Laundry Tracking System",
+  //   description:
+  //     "Developed a resilient solution for tracking diverse garments within the pharmaceutical industry. Designed a custom RFID transmitter/receiver system affixed to garments, enabling efficient bulk scanning and streamlined data storage. Winners of Smart India Hackathon 2019 Hardware Edition.",
+  //   stack: ["Arduino", "Python", "RFID", "C++"],
+  //   link: ["",""],
+  // },
+  // {
+  //   name: "Resource Allocation using Power Domain Non-Orthogonal Multiple Access",
+  //   description:
+  //     "Implemented strategies to enhance the efficiency of Non-Orthogonal Multiple Access (NOMA), thereby establishing a more stable communication framework.",
+  //   stack: ["Matlab"],
+  //   link: ["",""],
+  // },
 ];
 
 const experiences = [

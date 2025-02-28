@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import styles from "./rollingCards.module.scss";
 import { projects } from "@/utils/userData";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface RollingGalleryProps {
   autoplay?: boolean;
@@ -148,6 +149,22 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
                       {tech}
                     </span>
                   ))}
+                </div>
+                <div className={styles.stack1}>
+                  {project.link.map((link, index) =>
+                    link !== "" ? (
+                      <a
+                        key={index}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.techBadge1}
+                      >
+                        {index === 0 ? "Website" : "GitHub Repo"}
+                        <FaExternalLinkAlt className={styles.linkArrow} />
+                      </a>
+                    ) : null
+                  )}
                 </div>
               </div>
             </div>
