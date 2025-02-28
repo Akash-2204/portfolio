@@ -6,7 +6,8 @@ import styles from "./contactInfo.module.scss";
 import EmailCard from "@/components/emailCard/emailCard";
 
 const ContactInfo = () => {
-  const imagePath = "/images/akash_pic.png";
+  const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+  const imagePath = `${basePath}/images/akash_pic.png`;
 
   const socialLinks = [
     { src: "https://img.icons8.com/nolan/64/resume.png", alt: "Resume", url: "https://drive.google.com/file/d/1bEAMBdyNC9bHsHmrPqjsO60vzi23Qdhv/view?usp=sharing" },

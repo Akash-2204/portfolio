@@ -10,6 +10,7 @@ const ScrollText = dynamic(() => import("@/components/Texts/scrollText/scrollTex
 const Marquee = dynamic(() => import("@/components/marquee/marquee"), { ssr: false });
 
 const Skills = () => {
+  const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -54,7 +55,7 @@ const Skills = () => {
             <div className={styles.categoryTitle}>{category}</div>
             <Marquee className={styles.skillsList}>
               {skillList.map((skill, skillIndex) => {
-                const imagePath = `/images/${skill.toLowerCase()}.png`;
+                const imagePath = `${basePath}/images/${skill.toLowerCase()}.png`;
                 return (
                   <div key={skillIndex} className={styles.skillsItem}>
                     <Image
