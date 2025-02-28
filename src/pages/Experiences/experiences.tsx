@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import ExperienceModal from "@/components/modal/modal";
 import { experiences } from "@/utils/userData";
 import styles from "./experiences.module.scss";
 import { motion, useInView } from "framer-motion";
-import ScrollText from "@/components/Texts/scrollText/scrollText";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
@@ -15,6 +13,10 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import WorkIcon from "@mui/icons-material/Work"; // Change icon if needed
 import SchoolIcon from "@mui/icons-material/School";
 import { useRef, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const ExperienceModal = dynamic(() => import("@/components/modal/modal"), { ssr: false });
+const ScrollText = dynamic(() => import("@/components/Texts/scrollText/scrollText"), { ssr: false });
 
 export default function Experiences() {
   const [isMobile, setIsMobile] = useState(false);

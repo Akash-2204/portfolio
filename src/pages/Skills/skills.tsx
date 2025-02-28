@@ -1,11 +1,13 @@
 "use client";
-import Marquee from "@/components/marquee/marquee";
-import ScrollText from "@/components/Texts/scrollText/scrollText";
 import { skills } from "@/utils/userData";
 import styles from "./skills.module.scss";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ScrollText = dynamic(() => import("@/components/Texts/scrollText/scrollText"), { ssr: false });
+const Marquee = dynamic(() => import("@/components/marquee/marquee"), { ssr: false });
 
 const Skills = () => {
   const controls = useAnimation();

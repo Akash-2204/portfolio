@@ -1,7 +1,9 @@
 "use client";
 import styles from "./projects.module.scss";
-import ScrollText from "@/components/Texts/scrollText/scrollText";
-import RollingGallery from "@/components/rollingCards/rollingCards";
+import dynamic from "next/dynamic";
+
+const ScrollText = dynamic(() => import("@/components/Texts/scrollText/scrollText"), { ssr: false });
+const RollingGallery = dynamic(() => import("@/components/rollingCards/rollingCards"), { ssr: false });
 
 const Projects = () => (
   <div className={styles.container}>

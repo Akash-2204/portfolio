@@ -6,7 +6,6 @@ import { Briefcase, School } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./modal.module.scss";
 import SpotlightCard from "../card/card";
-import CircularText from "../Texts/circularText/circularText";
 
 interface ExperienceProps {
   company: string;
