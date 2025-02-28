@@ -1,13 +1,19 @@
 "use client";
 import dynamic from "next/dynamic";
-import AvatarModel from "@/components/avatarModel/avatarModel";
 import styles from "./homePage.module.scss";
 import { about } from "../../utils/userData";
-import GradientText from "@/components/Texts/gradientText/gradiantText";
 import Image from "next/image";
 
 const RotatingText = dynamic(
   () => import("@/components/Texts/rotateTexts/rotateTexts"),
+  { ssr: false }
+);
+const AvatarModel = dynamic(
+  () => import("@/components/avatarModel/avatarModel"),
+  { ssr: false }
+);
+const GradientText = dynamic(
+  () => import("@/components/Texts/gradientText/gradiantText"),
   { ssr: false }
 );
 
