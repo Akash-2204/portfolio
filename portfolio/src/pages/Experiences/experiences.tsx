@@ -14,10 +14,22 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import WorkIcon from "@mui/icons-material/Work"; // Change icon if needed
 import SchoolIcon from "@mui/icons-material/School";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Experiences() {
-  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Set to true for screens below 768px
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className={styles.container}>
       <div>
@@ -33,38 +45,43 @@ export default function Experiences() {
       </div>
 
       {/* Timeline Component */}
-      <Timeline position="alternate">
+      <Timeline position={isMobile ? "right" : "alternate"}>
         {experiences.map((exp, index) => {
           const ref = useRef(null);
           const isInView = useInView(ref, { amount: 0.3, once: false });
+
           return (
-            <TimelineItem key={index} ref={ref}>
+            <TimelineItem key={index} ref={ref} sx={{
+              "&::before": {
+                display: "none",
+                content: "none",
+              },
+            }}>
               {/* Opposite Content - Time Period */}
-              <TimelineOppositeContent
-                sx={{
-                  m: "auto 0",
-                  textAlign: index % 2 === 0 ? "right" : "left",
-                  display: "flex",
-                  justifyContent: index % 2 === 0 ? "flex-end" : "flex-start",
-                  fontFamily: "'Orbitron', sans-serif", // Add custom font
-                  fontSize: "1.5rem", // Adjust font size
-                  fontWeight: "600", // Make it bolder
-                  color: index % 2 === 0 ? "#b784f4" : "#b784f4", // Alternate colors
-                }}
-              >
-                {exp.duration} {/* Example: 2021 - Present */}
-              </TimelineOppositeContent>
+              {!isMobile ?  (
+                <TimelineOppositeContent
+                  sx={{
+                    m: "auto 0",
+                    textAlign: index % 2 === 0 ? "right" : "left",
+                    display: "flex",
+                    justifyContent: index % 2 === 0 ? "flex-end" : "flex-start",
+                    fontFamily: "'Orbitron', sans-serif",
+                    fontSize: "1.5rem",
+                    fontWeight: "600",
+                    color: "#b784f4",
+                  }}
+                >
+                  {exp.duration}
+                </TimelineOppositeContent>
+              ):null}
 
               {/* Timeline Dot and Connector */}
               <TimelineSeparator>
-                {/* Top Connector with Scroll Effect */}
                 <TimelineConnector
                   className={`${styles.timelineConnector} ${
-                    isInView ? styles.active : styles.active
+                    isInView ? styles.active : ""
                   }`}
                 />
-
-                {/* Glowing Timeline Dot */}
                 <TimelineDot
                   className={`${styles.timelineDot} ${
                     isInView ? styles.active : ""
@@ -76,8 +93,6 @@ export default function Experiences() {
                     <WorkIcon sx={{ color: "#a60707" }} />
                   )}
                 </TimelineDot>
-
-                {/* Bottom Connector with Scroll Effect */}
                 <TimelineConnector
                   className={`${styles.timelineConnector} ${
                     isInView ? styles.active : ""
@@ -88,8 +103,10 @@ export default function Experiences() {
               {/* Motion Animated Experience Content */}
               <TimelineContent>
                 <motion.div
-                //to change based on screen size
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 200 : -200 }}
+                  initial={{
+                    opacity: 0,
+                    x: isMobile ? 200 : index % 2 === 0 ? 200 : -200,
+                  }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 1.2, ease: "easeOut" }}
                 >

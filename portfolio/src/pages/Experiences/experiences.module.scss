@@ -4,10 +4,12 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 40px 20px;
-  margin: 0 0px;
+  // padding: 40px 20px;
+  margin: 0 15px;
   position: relative;
   @media (max-width: 880px) {
+    justify-content: center;
+    align-items: center;
     
   }
 }
@@ -85,4 +87,13 @@
   .oppContent {
     font-size: 1.1rem;
   }
+}
+@media (max-width: 468px) {
+  .oppContent {
+    font-size: 0.8rem;
+  }
+}
+.MuiTimelineItem-root::before {
+  display: none !important;
+  content: none !important;
 }
