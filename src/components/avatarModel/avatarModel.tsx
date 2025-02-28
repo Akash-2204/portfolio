@@ -7,6 +7,7 @@ import styles from "./avatarModel.module.scss";
 
 const AvatarModel: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
+  const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -37,7 +38,7 @@ const AvatarModel: React.FC = () => {
     let avatar: THREE.Object3D | null = null;
 
     loader.load(
-      "/models/avatar.glb",
+      `${basePath}/models/avatar.glb`,
       (gltf) => {
         avatar = gltf.scene;
         avatar.position.set(0, -2.2, 0);
