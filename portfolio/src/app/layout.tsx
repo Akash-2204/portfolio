@@ -66,27 +66,27 @@ const smoothScrollTo = (target: number, duration: number) => {
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const items = [
     {
-      icon: <VscHome size={18} />,
+      icon: <VscHome size={26} />,
       label: "Home",
       onClick: () => handleNavigation("home"),
     },
     {
-      icon: <VscBriefcase size={18} />,
+      icon: <VscBriefcase size={26} />,
       label: "Experience",
       onClick: () => handleNavigation("experiences"),
     },
     {
-      icon: <VscProject size={18} />,
+      icon: <VscProject size={26} />,
       label: "Projects",
       onClick: () => handleNavigation("projects"),
     },
     {
-      icon: <VscTools size={18} />,
+      icon: <VscTools size={26} />,
       label: "Skills",
       onClick: () => handleNavigation("skills"),
     },
     {
-      icon: <VscMail size={18} />,
+      icon: <VscMail size={26} />,
       label: "ContactMe",
       onClick: () => handleNavigation("contactMe"),
     },
@@ -117,9 +117,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="dock-container">
           <Dock
             items={items}
-            panelHeight={68}
-            baseItemSize={50}
-            magnification={70}
+            panelHeight={30}
+            baseItemSize={60}
+            magnification={80}
           />
         </div>
 

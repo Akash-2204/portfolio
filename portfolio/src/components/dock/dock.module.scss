@@ -18,6 +18,11 @@
   background-color: #060606;
   border: 1px solid #222;
   padding: 0 0.5rem 0.5rem;
+  @media (max-width: 768px) {
+    gap: 0.6rem;
+    padding: 0px;
+  }
+
 }
 
 .dockItem {
@@ -26,7 +31,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background-color: #060606;
+  background-color: #0b0710;
   border: 1px solid #222;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -47,10 +52,11 @@
   width: fit-content;
   white-space: pre;
   border-radius: 0.375rem;
-  border: 1px solid #222;
-  background-color: #060606;
+  // border: 1px solid #222;
+  background-color: #06060600;
   padding: 0.125rem 0.5rem;
-  font-size: 0.75rem;
-  color: #fff;
+  font-size: 1rem;
+  color: #7f45cf;
   transform: translateX(-50%);
+  font-family: fantasy;
 }
