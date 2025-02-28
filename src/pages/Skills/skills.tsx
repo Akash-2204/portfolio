@@ -6,8 +6,13 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import dynamic from "next/dynamic";
 
-const ScrollText = dynamic(() => import("@/components/Texts/scrollText/scrollText"), { ssr: false });
-const Marquee = dynamic(() => import("@/components/marquee/marquee"), { ssr: false });
+const ScrollText = dynamic(
+  () => import("@/components/Texts/scrollText/scrollText"),
+  { ssr: false }
+);
+const Marquee = dynamic(() => import("@/components/marquee/marquee"), {
+  ssr: false,
+});
 
 const Skills = () => {
   const controls = useAnimation();
@@ -54,8 +59,11 @@ const Skills = () => {
             <div className={styles.categoryTitle}>{category}</div>
             <Marquee className={styles.skillsList}>
               {skillList.map((skill, skillIndex) => {
-                const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
-                const imagePath = `${basePath}/images/${skill.toLowerCase()}.png`;
+                const capitalizeFirstLetter = (string: string) =>
+                  string.charAt(0).toUpperCase() + string.slice(1);
+                const basePath =
+                  process.env.NODE_ENV === "production" ? "/portfolio" : "";
+                const imagePath = `${basePath}/images/${skill}.png`;
                 return (
                   <div key={skillIndex} className={styles.skillsItem}>
                     <Image
@@ -65,7 +73,9 @@ const Skills = () => {
                       height={40}
                       className={styles.skillIcon}
                     />
-                    <div className={styles.skillsText}>{skill}</div>
+                    <div className={styles.skillsText}>
+                      {capitalizeFirstLetter(skill)}
+                    </div>
                   </div>
                 );
               })}
