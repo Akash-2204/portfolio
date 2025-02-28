@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: "/portfolio", // ✅ Set GitHub Pages subdirectory
-  assetPrefix: "/portfolio",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/portfolio" : "",
   images: {
     unoptimized: true, // ✅ Disable Next.js image optimization for GitHub Pages
     remotePatterns: [
