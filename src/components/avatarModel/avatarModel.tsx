@@ -11,7 +11,7 @@ interface AvatarModelProps {
   enableStats?: boolean;
 }
 
-const AvatarModel: React.FC<AvatarModelProps> = ({ enableStats = process.env.NODE_ENV !== 'development' }) => {
+const AvatarModel: React.FC<AvatarModelProps> = ({ enableStats = process.env.NODE_ENV === 'test' }) => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const statsRef = useRef<Stats | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
