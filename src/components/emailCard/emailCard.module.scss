@@ -33,7 +33,7 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 900;
   color: white;
   margin-bottom: 20px;
@@ -49,7 +49,7 @@
 }
 
 .label {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   color: #ffffff;
   display: flex;
@@ -66,7 +66,7 @@
   border: none;
   background: #1a1035;
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
   transition: all 0.3s ease-in-out;
 
   &::placeholder {
@@ -92,7 +92,7 @@
 
 .errorText {
   color: red;
-  font-size: 0.85rem;
+  font-size: 13.6px;
   margin-top: 5px;
 }
 
@@ -104,7 +104,7 @@
   border-radius: 8px;
   background: #3e245f;
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -118,6 +118,6 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .title {
-    font-size: 2rem;
+    font-size: 32px;
   }
 }

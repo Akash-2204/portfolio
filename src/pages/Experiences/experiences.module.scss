@@ -65,7 +65,7 @@
 // Opposite Content Styling
 .oppContent {
   display: flex;
-  font-size: 1.3rem;
+  font-size: 20.8px;
   font-weight: bold;
   font-family: "Audiowide", sans-serif;
   transition: color 0.8s ease-in-out;
@@ -85,12 +85,12 @@
 // **🔥 Responsive Design**
 @media (max-width: 768px) {
   .oppContent {
-    font-size: 1.1rem;
+    font-size: 17.6px;
   }
 }
 @media (max-width: 468px) {
   .oppContent {
-    font-size: 0.8rem;
+    font-size: 12.8px;
   }
 }
 .MuiTimelineItem-root::before {

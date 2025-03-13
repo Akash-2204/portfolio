@@ -2,7 +2,7 @@
     --color-text: #ffffff;
     --color-bg: #060606;
     --color-bg-accent: #111111;
-    --size: clamp(10rem, 1rem + 40vmin, 30rem);
+    --size: clamp(160px, 16px + 40vmin, 480px);
     --gap: calc(var(--size) / 14);
     --duration: 60s;
   }
@@ -110,7 +110,7 @@
     background: var(--color-bg-accent);
     aspect-ratio: 16/9;
     padding: calc(var(--size) / 10);
-    border-radius: 0.5rem;
+    border-radius: 8px;
     object-fit: contain;
   }
   
