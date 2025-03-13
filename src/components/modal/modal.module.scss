@@ -49,7 +49,10 @@
     margin: 5px;
     padding: 5px;
   }
-  
+  @media (max-width: 458px) {
+    max-width: 90%;
+    padding: 16px;
+  }
 }
 
 // Small Modal
@@ -85,7 +88,7 @@
     font-size: 17.6px;
   }
   @media (max-width: 458px){
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -112,6 +115,7 @@
   margin: 5px 0;
   display: flex;
   flex-direction: column;
+  font-size: 9px;
   // gap: 10px;
 }
 .descriptionItem {
@@ -138,7 +142,9 @@
     font-size: 14px;
     gap: 10px;
   }
-
+  @media (max-width: 458px) {
+    font-size: 9px;
+  }
 }
 
 // Button Container
@@ -261,7 +267,9 @@
     font-size: 19.2px;
     margin-bottom: 10px;
   }
-
+  @media (max-width: 458px) {
+    font-size: 24px;
+  }
 }
 
 // Job Role
@@ -274,12 +282,18 @@
     font-size: 16px;
     margin-bottom: 10px;
   }
+  @media (max-width: 458px) {
+    font-size: 14px;
+  }
 }
 
 // Duration
 .duration {
   font-size: 1rem;
   color: #b2bec3;
+  @media (max-width: 458px) {
+    font-size: 12px;
+  }
 }
 
 // Hover Text (Click to Expand)
