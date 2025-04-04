@@ -7,9 +7,9 @@ const about = {
   name: "Akash Thirumuruganantham",
   role: "Full Stack Developer",
   description:
-    "Experienced Full-Stack Developer with a proven track record of designing and implementing robust applications. Specialized in React,Flutter, NodeJs, MongoDb, ExpressJs,(MERN stack) NextJS, SQL, I excel in optimizing performance and delivering scalable solutions. Proficient in Agile methodologies, project leadership, codebase refactoring, and implementing CI/CD pipelines. Strong problem-solving and communication skills contribute to successful project outcomes.",
+    "Fullstack Developer with over 5 years of experience designing and deploying AI-powered, scalable web applications across healthcare, higher education, and enterprise sectors. Adept in building responsive, high-performance frontends using React (Next.js), TypeScript, GraphQL, and Tailwind CSS, with a strong emphasis on reusability, accessibility, and user-centric design. Proven backend expertise in Node.js, Express, REST APIs, Python APIs, implementing Microservices design and Serverless architecture to support real-time features and LLM-integrated workflows using frameworks like LangChain and TensorFlow. Experience developing big data interfaces with Kafka, AWS Kinesis, and HDFS, supporting large-scale data processing and visualization. Hands-on with secure AWS deployments (Lambda, API Gateway, S3, SageMaker, DynamoDB) and CI/CD pipelines automation using Docker, Jenkins, and GitHub Actions. Passionate about improving system reliability, developer velocity, and delivering measurable business value in an Agile development.",
   resume:
-    "https://drive.google.com/file/d/1axWbdj17I0pcwZeNbDZuh9wSkGUPqi0v/view?usp=drive_link",
+    "https://drive.google.com/file/d/1n9R1tRzTpiLLODo14TzVAI6r3Vxp6QJg/view?usp=sharing",
   social: {
     linkedin: "https://www.linkedin.com/in/akash-thirumuruganantham/",
     github: "https://github.com/Akash-2204",
@@ -32,14 +32,14 @@ const projects = [
       "MUI",
       "EmailJS",
     ],
-    link: ["","https://github.com/Akash-2204/portfolio"],
+    link: ["", "https://github.com/Akash-2204/portfolio"],
   },
   {
     name: "Patient Navigation System (PNSS)",
     description:
       "A Healthcare platform optimizing test ordering, tracking, and patient-phlebotomist coordination. Built a responsive UI with React (Next.js) and Storybook, leveraging AWS for scalable infrastructure.",
     stack: ["Next.js", "React.js", "Node.js", "AWS", "RestAPI"],
-    link: ["https://www.vibrant-wellness.com/ForPatient",""],
+    link: ["https://www.vibrant-wellness.com/ForPatient", ""],
   },
   {
     name: "Blood Draw Maps",
@@ -54,14 +54,14 @@ const projects = [
       "Geospatial Search",
       "Redux",
     ],
-    link: ["https://www.vibrant-america.com/blood-draw-maps/v2",""],
+    link: ["https://www.vibrant-america.com/blood-draw-maps/v2", ""],
   },
   {
     name: "Health Metrics Dashboard",
     description:
       "Designed and developed a scalable health metrics dashboard using React, Node.js, and MongoDB, delivering real-time analytics for healthcare providers. Integrated MongoDB with WebSocket for real-time updates, reducing latency by 25% and improving decision-making with up-to-the-minute insights.",
     stack: ["React", "Node.js", "MongoDB", "WebSocket"],
-    link: ["",""],
+    link: ["", ""],
   },
   {
     name: "GitHub Repository Analytics and Forecasting with LLMs",
@@ -74,28 +74,31 @@ const projects = [
       "LangChain",
       "Elasticsearch",
     ],
-    link: ["","https://github.com/Akash-2204/SCM587FA24"],
+    link: ["", "https://github.com/Akash-2204/SCM587FA24"],
   },
   {
     name: "Queue Management System",
     description:
       "Crafted to enhance patient waiting experiences in healthcare environments, including clinics, hospitals, and medical centers, this solution reduces wait times, boosts patient satisfaction, and optimizes operational efficiency by leveraging React, Node.js, and AWS services to manage patient queues seamlessly and efficiently.",
     stack: ["TypeScript", "React", "Node.js", "AWS"],
-    link: ["",""],
+    link: ["", ""],
   },
   {
     name: "Patient Connect Chat",
     description:
       "This project aims to develop a real-time chat application tailored for healthcare, utilizing React for the frontend, Node.js for the backend, and AWS services for deployment, scalability, and reliability. The application will enable patients and healthcare professionals to create accounts, join chat rooms, and exchange messages in real-time.",
     stack: ["TypeScript", "React", "Node.js", "AWS"],
-    link: ["",""],
+    link: ["", ""],
   },
   {
     name: "Anomaly-Driven-Video-Summarization",
     description:
       "A real-time surveillance system that enhances anomaly detection by analyzing video footage, identifying unusual activities, and summarizing critical events to improve security monitoring and data retrieval efficiency.",
     stack: ["Python", "TensorFlow", "OpenCV", "NumPy", "3D ResNet"],
-    link: ["","https://github.com/Akash-2204/Anomaly-Driven-Video-Summarization"],
+    link: [
+      "",
+      "https://github.com/Akash-2204/Anomaly-Driven-Video-Summarization",
+    ],
   },
   // {
   //   name: "Sensor Data Collection using an Autonomous Drone",
@@ -122,6 +125,30 @@ const projects = [
 
 const experiences = [
   {
+    type: "work",
+    role: "Software Developer",
+    company: "Illinois Institute of Technology",
+    duration: "Sept 2023 - Present",
+    location: "Chicago, IL, USA",
+    description: [
+      "Built and deployed an AI-powered real-time chatbot using React, AWS Lambda, and API Gateway, which streamlined high-volume student service requests, reduced manual workload by 70%, and improved response accuracy and query resolution speed significantly across departments.",
+      "Designed responsive academic dashboards using React, TypeScript, and Tailwind CSS, improving cross-device accessibility and reducing page load time by 40% through reusable UI components, performance tuning, and optimized rendering strategies including lazy loading and state management improvements.",
+      "Integrated Hadoop and HDFS with frontend visualizations using React and charting libraries, enhancing large-scale research data processing workflows and enabling scalable insights with improved data transparency, contributing to a 40% increase in analysis throughput and visualization adoption.",
+      "Collaborated with data science teams to implement academic predictors using Python APIs, enabling faculty to proactively track student performance trends and boosting early intervention efficiency, which improved student retention and engagement scores across departments by over 25%.",
+      "Architected and deployed serverless, event-driven applications using AWS Lambda, S3, and API Gateway to ensure real-time system responsiveness, lower latency, and zero-downtime updates, while optimizing cloud costs and enabling seamless scalability of internal university systems.",
+    ],
+    stack: [
+      "React (Next.js)",
+      "Node.js",
+      "GraphQL",
+      "TypeScript",
+      "AWS Lambda",
+      "API Gateway",
+      "AI",
+      "LLMs",
+    ],
+  },
+  {
     type: "school",
     role: "Master's in Computer Science",
     company: "Illinois Institute of Technology",
@@ -147,9 +174,10 @@ const experiences = [
     duration: "Jun 2021 - Jul 2023",
     location: "Chennai, India",
     description: [
-      "Led a team of 6 in the design and development of a scalable SaaS-based patient navigation portal using React (Next.js), React Native, GraphQL, TypeScript, and Python, achieving a 60% increase in user satisfaction and 40% faster load times.",
+      "Led a team of 8 in the design and development of a scalable SaaS-based patient navigation portal using React (Next.js), React Native, GraphQL, TypeScript, and Python, achieving a 60% increase in user satisfaction and 40% faster load times.",
       "Developed reusable, responsive UI components using React (Next.js), Storybook, and Figma, while collaborating with cross-functional teams to implement interactive and responsive designs, enhancing user experience across diverse devices.",
       "Designed and deployed scalable solutions using AWS services (Lambda, S3, CloudFront, Route 53), implementing secure API integrations and data encryption to ensure performance, availability, and regulatory compliance across distributed systems.",
+      "Built AI-powered scheduling and optimization features using TensorFlow.js, AWS SageMaker, and Google OR-Tools, reducing patient appointment conflicts by 35% and improving phlebotomist route efficiency by 40%, enhancing operational performance in compliance-focused healthcare workflows.",
       "Designed and implemented microservices architecture with Node.js, gRPC, and Kafka for seamless communication and real-time data streaming, optimizing RESTful APIs with Redis and MongoDB, achieving a 50% improvement in query efficiency.",
       "Enhanced frontend performance with Webpack, Babel, code-splitting, lazy loading, and caching, and improved backend by designing RESTful APIs with Redis and MongoDB, achieving a 40% reduction in load times and 50% faster query responses.",
       "Implemented robust testing frameworks with Jest and Cypress, achieving 95% test coverage and reducing production issues by 30%, while automating CI/CD pipelines using Jenkins, GitHub Actions, and Docker for seamless deployments.",
@@ -161,6 +189,7 @@ const experiences = [
       "GraphQL",
       "TypeScript",
       "gRPC",
+      "LLMs",
       "Python",
       "AWS",
       "MongoDB",
