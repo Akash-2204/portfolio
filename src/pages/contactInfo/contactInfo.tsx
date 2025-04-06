@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./contactInfo.module.scss";
 import EmailCard from "@/components/emailCard/emailCard";
-import { abort } from "process";
 import { about } from "@/utils/userData";
 
 const ContactInfo = () => {
