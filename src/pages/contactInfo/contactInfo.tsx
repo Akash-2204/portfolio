@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./contactInfo.module.scss";
 import EmailCard from "@/components/emailCard/emailCard";
+import { abort } from "process";
+import { about } from "@/utils/userData";
 
 const ContactInfo = () => {
   const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
   const imagePath = `${basePath}/images/akash_pic.png`;
 
   const socialLinks = [
-    { src: "https://img.icons8.com/nolan/64/resume.png", alt: "Resume", url: "https://drive.google.com/file/d/1bEAMBdyNC9bHsHmrPqjsO60vzi23Qdhv/view?usp=sharing" },
+    { src: "https://img.icons8.com/nolan/64/resume.png", alt: "Resume", url: about.resume },
     { src: "https://img.icons8.com/nolan/64/linkedin.png", alt: "LinkedIn", url: "https://www.linkedin.com/in/akash-thirumuruganantham/" },
     { src: "https://img.icons8.com/nolan/64/github.png", alt: "GitHub", url: "https://github.com/Akash-2204" },
     { src: "https://img.icons8.com/nolan/48/instagram-new--v1.png", alt: "Instagram", url: "https://www.instagram.com/akash_thirumuruganantham/" },
